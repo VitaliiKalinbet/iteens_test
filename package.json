@@ -13,7 +13,7 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "redux": "^4.0.2",
+    "redux": "^4.0.3",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
@@ -46,7 +46,15 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
     "husky": "^3.0.0",
-    "lint-staged": "^9.1.0",
+    "lint-staged": "^9.2.0",
     "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js, *.jsx": ["./node_modules/.bin/eslint — fix", "git add"]
   }
 }
