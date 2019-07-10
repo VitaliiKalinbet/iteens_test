@@ -23,8 +23,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "lint": "eslint src/**/*.{js,jsx}",
-    "format": "eslint src/**/*.{js,jsx} --fix"
+    "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix",
+    "prettier": "prettier --write src/**/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,7 +59,7 @@
     }
   },
   "lint-staged": {
-    "*.js, *.jsx": [" — fix", "git add"]
+    "*.(js|jsx)": ["npm run lint:write", "git add"]
   },
   "jest": {
     "collectCoverageFrom": [
