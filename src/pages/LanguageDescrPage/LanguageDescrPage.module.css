@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+.languageDescrPageContainer{
+    text-align: center;
+    margin: 0 auto;
+    width: 17.5rem;
+
+    display: flex;
+    flex-flow: column;
+}
+.firstBlock{
+    background-color: #f2f2f2;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1rem;
+}
+.firstBlockImageMobile{
+    margin-top: 2.625rem;
+}
+.firstBlockTextInfo{
+    text-align: left;
+    width: 14.125rem;
+    margin: 0 auto;
+}
+.textBlock_item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.0625rem;
+}
+
+.textBlock_item:last-of-type{
+    margin-bottom: 2.175rem;
+}
+.btnGoBack{
+    color: #a4aabd;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding-bottom: 2.7125rem;
+}
+.btnGoBack::before{
+    content: url('../../assets/icons/baseline-keyboard_return-24px.svg');
+    width: 0.9375rem;
+    height: 0.5625rem;
+    vertical-align: middle;
+    padding-right: 0.9rem;
+}
+.secondBlock{
+    margin: 0 auto;
+    width: 15.75rem;
+    margin-top: 3.5rem;
+}
+.secondBlockTitle{
+    color: #2e3038;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.875rem;
+    line-height: 2rem;
+    margin-bottom: 2.31rem;
+}
+.secondBlockDescription{
+    margin-left: 1.25rem;
+    color: #2e3038;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.65rem;
+}
+.btnStartTest{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+
+    margin-top: 2.375rem;
+    margin-bottom: 5.325rem;
+    cursor: pointer;
+    border: 0;
+    background-color: #fc842c;
+    padding: 0.625rem 2.5rem;
+    border-radius: 1.875rem;
+    box-shadow: 1px 4px 13px -2px rgba(252,132,44,1);
+}
+
+@media screen and (min-width: 768px) {
+    .languageDescrPageContainer{
+        width: 43.4375rem;
+    }
+    .firstBlockTextInfo{
+        width: 21rem;
+    }
+    .textBlock_item span{
+        flex-grow: 2;
+        border-bottom: 0.0625rem solid #dce0e9;
+    }
+    .btnGoBack{
+        text-align: left;
+    }
+    .secondBlock{
+        width: 36.0625rem;
+    }
+    .secondBlockDescription{
+        margin: 0;
+    }
+}
+@media screen and (min-width: 1280px){
+    .languageDescrPageContainer{
+        width: 60.125rem;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+    .firstBlock{
+        width: 28.4375rem;
+        height: 43.5rem;
+    }
+    .secondBlock{
+        margin-top: 4.4375rem;
+        text-align: left;
+        width: 24.0625rem;
+    }
+}
