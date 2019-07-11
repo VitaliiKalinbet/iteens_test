@@ -13,7 +13,7 @@ class LanguageDescrPage extends Component {
     return (
       <section className={styles.languageDescrPageContainer}>
         <div className={styles.firstBlock}>
-          <picture className={styles.firstBlockPicture}>
+          <picture>
             <source media="(min-width: 768px)" srcSet={tabletPhoto} />
             <source media="(min-width: 1280px)" srcSet={desktopPhoto} />
             <img
