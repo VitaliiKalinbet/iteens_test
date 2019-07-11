@@ -5,6 +5,7 @@ import LanguageDescrPage from './pages/LanguageDescrPage/LanguageDescrPage';
 import TestPage from './pages/TestPage/TestPage';
 import ResultPage from './pages/ResultPage/ResultPage';
 import ContactPage from './pages/ContactPage/ContactPage';
+// import css from './App.module.css';
 
 function App() {
   return (
