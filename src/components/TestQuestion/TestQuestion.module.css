@@ -1,0 +1,19 @@
+.paper {
+  background-color: #f2f2f2;
+  padding: 35px 30px;
+}
+.text {
+  font-family: "Gotham Pro", "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .paper {
+    padding: 60px;
+  }
+  .text {
+    font-size: 1.875rem;
+  }
+}
