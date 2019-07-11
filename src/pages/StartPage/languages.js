@@ -8,21 +8,18 @@ const languages = [
     lang: 'Основы С#',
     qustions: 25,
     key: 'c++',
-    path: '/language_descr',
   },
   {
     img: logoJS,
     lang: 'JavaScript',
     qustions: 20,
     key: 'js',
-    path: '/language_descr',
   },
   {
     img: logoJava,
     lang: 'Java',
     qustions: 25,
     key: 'java',
-    path: '/language_descr',
   },
 ];
 

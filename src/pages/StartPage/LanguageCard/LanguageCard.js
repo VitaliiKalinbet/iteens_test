@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import style from './LanguageCard.module.css';
 
-const LanguageCard = ({ img, lang, qustions, path }) => (
+const LanguageCard = ({ img, lang, qustions }) => (
   <li className={style.card}>
-    <Link className={style.link} to={path} />
+    <Link className={style.link} to="/language_descr" />
     <div className={style.shadow} />
     {img.length ? (
       <img className={style.logo} src={img} alt="logoLang" />
@@ -26,7 +26,6 @@ LanguageCard.propTypes = {
   img: PropTypes.string,
   lang: PropTypes.string.isRequired,
   qustions: PropTypes.number.isRequired,
-  path: PropTypes.string.isRequired,
 };
 
 export default LanguageCard;

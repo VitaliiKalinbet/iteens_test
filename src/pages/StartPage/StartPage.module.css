@@ -16,6 +16,7 @@
   font-weight: bold;
   font-style: italic;
   margin-top: 0;
+  margin-bottom: 25px;
 }
 .lduo {
   color: #fc842c;
@@ -25,6 +26,7 @@
   color: #8b92ab;
   font-size: 14px;
   font-family: "Open sans";
+  margin-bottom: 45px;
 }
 .organization {
   font-size: 16px;
@@ -56,12 +58,14 @@
   }
   .blockquote {
     font-size: 30px;
+    margin-bottom: 35px;
   }
   .lduo {
     font-size: 72px;
   }
   .autor {
     font-size: 16px;
+    margin-bottom: 40px;
   }
   .organization {
     font-size: 18px;
