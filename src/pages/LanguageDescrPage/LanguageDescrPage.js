@@ -4,6 +4,7 @@ import styles from './LanguageDescrPage.module.css';
 import mobilePhoto from '../../assets/img/Csharp/csharp_mobile.png';
 import tabletPhoto from '../../assets/img/Csharp/csharp_tablet.png';
 import desktopPhoto from '../../assets/img/Csharp/csharp_desktop.png';
+import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
   state = {};
@@ -12,22 +13,40 @@ class LanguageDescrPage extends Component {
     return (
       <section className={styles.languageDescrPageContainer}>
         <div className={styles.firstBlock}>
-          <picture>
+          <picture className={styles.firstBlockPicture}>
             <source media="(min-width: 768px)" srcSet={tabletPhoto} />
             <source media="(min-width: 1280px)" srcSet={desktopPhoto} />
-            <img src={mobilePhoto} alt="mobile" />
+            <img
+              className={styles.firstBlockImageMobile}
+              src={mobilePhoto}
+              alt="mobile"
+            />
           </picture>
           <div className={styles.firstBlockTextInfo}>
-            <p>Количество вопросов</p>
-            <p>Пул вопросов</p>
-            <p>Создан</p>
-            <p>Обновлен</p>
-          </div>
-          <NavLink to="/" className={styles.goBackBtn}>
-            <button className={styles.btnGoBack} type="button">
+            <div className={styles.textBlock_item}>
+              <p>Количество вопросов</p>
+              <span />
+              <p className={styles.textBlock_itemNumber}>25</p>
+            </div>
+            <div className={styles.textBlock_item}>
+              <p>Пул вопросов</p>
+              <span />
+              <p className={styles.textBlock_itemNumber}>200</p>
+            </div>
+            <div className={styles.textBlock_item}>
+              <p>Создан</p>
+              <span />
+              <p className={styles.textBlock_itemNumber}>20.12.2018</p>
+            </div>
+            <div className={styles.textBlock_item}>
+              <p>Обновлен</p>
+              <span />
+              <p className={styles.textBlock_itemNumber}>05.03.2019</p>
+            </div>
+            <NavLink to="/" className={styles.btnGoBack}>
               Вернуться к списку тестов
-            </button>
-          </NavLink>
+            </NavLink>
+          </div>
         </div>
         <div className={styles.secondBlock}>
           <h2 className={styles.secondBlockTitle}>Основы C#</h2>
