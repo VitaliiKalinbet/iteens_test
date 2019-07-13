@@ -1,13 +1,13 @@
 import React from 'react';
-// import css from './TestControl.module.css';
 import PropTypes from 'prop-types';
+import css from './TestControl.module.css';
 import Button from '../Shared/Button/Button';
 
-const TestControl = ({ language, current, length, endTest }) => {
+const TestControl = ({ title, current, length, endTest }) => {
   return (
-    <div>
-      <p>[{language}]</p>
-      <p>
+    <div className={css.headerTest}>
+      <p className={css.title}>[{title}]</p>
+      <p className={css.orderQuestion}>
         Вопрос {current}/{length}
       </p>
       <Button handleClick={endTest}>Закончить тест</Button>
@@ -15,7 +15,7 @@ const TestControl = ({ language, current, length, endTest }) => {
   );
 };
 TestControl.propTypes = {
-  language: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   current: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   length: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   endTest: PropTypes.func.isRequired,

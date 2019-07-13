@@ -1,0 +1,12 @@
+.headerTest {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: #8b92ab;
+  font-family: "Gotham Pro", sans-serif;
+  font-weight: bold;
+}
+.orderQuestion {
+}
