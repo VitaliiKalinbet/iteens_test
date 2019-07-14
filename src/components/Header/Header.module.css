@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px;
+}
+.a, .a:hover {
+  text-decoration: none;
+}
+.logo {
+  width: 60px;
+  height: auto;
+}
+.link, .link:hover, .link:active, .link:focus {
+  text-decoration: none;
+  color: #8b92ab;
+  font-size: 14px;
+  text-transform: capitalize;
+  outline: none;
+  font-family: "Open Sans";
+}
+@media(min-width: 768px) {
+  .nav {
+    padding: 25px 35px;
+  }
+}
+@media(min-width: 1280px) {
+  .nav {
+    padding: 40px 60px;
+  }
+}
