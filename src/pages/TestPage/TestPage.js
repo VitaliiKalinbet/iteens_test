@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TestAnswer from '../../components/TestAnswer/TestAnswer';
+import TestExplanation from '../../components/TestExplanation/TestExplanation';
 
 const questions = [
   'for, while',
@@ -23,6 +24,7 @@ class TestPage extends Component {
           correctAnswered="for, while, do while,foreach"
           incorrectAnswered="for, while"
         />
+        <TestExplanation description="Циклы являются управляющими конструкциями, позволяя в зависимости от определенных условий выполнять некоторое действие множество раз. В C# имеются следующие виды циклов::" />
       </div>
     );
   }
