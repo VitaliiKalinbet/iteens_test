@@ -3,6 +3,7 @@ import Nav from '../../components/Header/Header';
 import style from './StartPage.module.css';
 import langages from './languages';
 import CardLanguage from './LanguageCard/LanguageCard';
+import TestControl from '../../components/TestControl/TestControl';
 
 class StartPage extends Component {
   state = {};
@@ -30,6 +31,12 @@ class StartPage extends Component {
               <CardLanguage key={lang.key} {...lang} />
             ))}
           </ul>
+          <TestControl
+            endTest={() => null}
+            title="Basis C#"
+            current={1}
+            length={20}
+          />
         </section>
       </Fragment>
     );

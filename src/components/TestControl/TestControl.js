@@ -7,10 +7,12 @@ const TestControl = ({ title, current, length, endTest }) => {
   return (
     <div className={css.headerTest}>
       <p className={css.title}>[{title}]</p>
+      <Button variant="outlined" handleClick={endTest} className={css.btn}>
+        Закончить тест
+      </Button>
       <p className={css.orderQuestion}>
         Вопрос {current}/{length}
       </p>
-      <Button handleClick={endTest}>Закончить тест</Button>
     </div>
   );
 };

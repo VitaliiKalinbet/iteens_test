@@ -21,6 +21,9 @@
   background-color: #8b92ab;
   color: #ffffff;
 }
+.simple:focus {
+  outline: none;
+}
 .contained {
   composes: simple;
   --color: #fc842c;
