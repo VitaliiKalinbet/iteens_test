@@ -1,0 +1,15 @@
+.textBlock_item{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.0625rem;
+}
+
+.textBlock_item:last-of-type{
+    margin-bottom: 2.175rem;
+}
+@media screen and (min-width: 768px) {
+    .textBlock_item span{
+        flex-grow: 2;
+        border-bottom: 0.0625rem solid #dce0e9;
+    }
+}
