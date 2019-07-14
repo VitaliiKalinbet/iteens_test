@@ -7,6 +7,14 @@
   font-weight: 500;
   font-size: 1.25rem;
   text-align: center;
+
+  -webkit-user-select: none;
+  /* user-select -- это нестандартное свойство */
+
+  -moz-user-select: none;
+  /* поэтому нужны префиксы */
+
+  -ms-user-select: none;
 }
 
 @media screen and (min-width: 768px) {
