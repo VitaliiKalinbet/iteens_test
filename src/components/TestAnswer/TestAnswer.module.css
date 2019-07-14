@@ -1,0 +1,153 @@
+.container {
+  padding: 30px 0 30px 45px;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.15);
+  width: 280px;
+  margin: 0 auto 20px;
+  position: relative;
+  background-color: #fff;
+}
+.label {
+  position: relative;
+}
+.labelCorrect:before {
+  position: absolute;
+  content: '';
+  background-color: rgba(0, 201, 71, 0.2);
+  background-image: url('../../assets/icons/checked.svg');
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  width: 280px;
+  left: -45px;
+  height: 100%;
+  background-position: 15px center;
+}
+.labelIncorrect:before {
+  position: absolute;
+  content: '';
+  background-color: rgba(0, 201, 71, 0.1);
+  background-image: url('../../assets/icons/cancel.svg');
+  background-repeat: no-repeat;
+  background-size: 13px 13px;
+  width: 280px;
+  left: -45px;
+  height: 100%;
+  background-position: 15px center;
+}
+
+.labelIncorrect:before {
+  position: absolute;
+  content: '';
+  background-color: rgba(255, 0, 0, 0.1);
+  background-image: url('../../assets/icons/cancel.svg');
+  background-repeat: no-repeat;
+  background-size: 11px 11px;
+  width: 280px;
+  left: -45px;
+  height: 100%;
+  background-position: 15px center;
+}
+.wrapperImgInput {
+}
+.img {
+  display: block;
+  margin-top: 40px;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.label:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.input {
+  margin-right: 12px;
+}
+.mobileContainerButton {
+  background-color: #f2f2f2;
+  padding: 28px 0;
+  display: block;
+}
+
+.buttonContainer {
+  width: 280px;
+  margin: 0 auto;
+}
+.tabletContainerButton {
+  display: none;
+}
+
+.button {
+  font-size: 14px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid transparent;
+  padding: 10px 0;
+  width: 135px;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+}
+.buttonConfirm {
+  composes: button;
+  background-color: rgb(252, 132, 44);
+  box-shadow: 0px 6px 10px 0px rgba(252, 132, 44, 0.33);
+  margin-right: 10px;
+}
+.buttonSkip {
+  composes: button;
+  color: #8b92ab;
+  border: 1px solid #8b92ab;
+  background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .container::after {
+    content: '';
+    top: -17px;
+    right: -17px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #f37f2a;
+  }
+
+  .img {
+    margin-top: 0px;
+  }
+  .wrapperImgInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobileContainerButton {
+    display: none;
+  }
+  .tabletContainerButton {
+    display: block;
+  }
+  .container {
+    width: 700px;
+    padding: 30px 100px 30px 115px;
+  }
+  .buttonContainer {
+    width: 100%;
+  }
+  .inputWrapper {
+    margin-bottom: 30px;
+  }
+  .buttonConfirm {
+    margin-right: 20px;
+  }
+
+  .labelCorrect:before {
+    width: 320px;
+  }
+  .labelIncorrect:before {
+    width: 320px;
+  }
+}
