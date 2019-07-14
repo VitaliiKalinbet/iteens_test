@@ -1,0 +1,54 @@
+.secondBlock{
+    margin: 0 auto;
+    width: 15.75rem;
+    margin-top: 3.5rem;
+}
+.secondBlockTitle{
+    color: #2e3038;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.875rem;
+    line-height: 2rem;
+    margin-bottom: 2.31rem;
+}
+.secondBlockDescription{
+    margin-left: 1.25rem;
+    color: #2e3038;
+    text-align: left;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.65rem;
+}
+.btnStartTest{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+
+    margin-top: 2.375rem;
+    margin-bottom: 5.325rem;
+    cursor: pointer;
+    border: 0;
+    background-color: #fc842c;
+    padding: 0.625rem 2.5rem;
+    border-radius: 1.875rem;
+    box-shadow: 1px 4px 13px -2px rgba(252,132,44,1);
+}
+@media screen and (min-width: 768px) {
+    .secondBlock{
+        width: 36.0625rem;
+    }
+    .secondBlockDescription{
+        margin: 0;
+    }
+}
+@media screen and (min-width: 1280px){
+    .secondBlock{
+        margin-top: 4.4375rem;
+        text-align: left;
+        width: 24.0625rem;
+    }
+}
