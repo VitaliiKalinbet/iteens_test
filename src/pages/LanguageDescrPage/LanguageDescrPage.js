@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
-import logo from '../../assets/img/Csharp/csharp.png';
+import logo from '../../assets/img/languages/csharp.png';
 import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
