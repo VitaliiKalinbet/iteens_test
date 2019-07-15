@@ -1,9 +1,10 @@
 .headerTest {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 24px 8px;
+
 }
 .title {
   color: #8b92ab;
@@ -23,14 +24,12 @@
 }
 .btn {
   padding: 5px 16px !important;
-  margin-left: auto;
 }
 @media screen and (min-width: 580px) {
   .orderQuestion {
     flex: 0 0 auto;
     margin-top: 0;
     margin-bottom: -8px;
-    margin-left: auto;
     border-bottom: 2px solid #f37f2a;
     padding: 8px 4px;
   }
