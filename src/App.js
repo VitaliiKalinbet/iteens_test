@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/language_descr" component={LanguageDescrPage} />
         <Route exact path="/test" component={TestPage} />
         <Route exact path="/result" component={ResultPage} />
-        <Route exact path="/contact" component={ContactPage} />
+        <Route exact path="/contacts" component={ContactPage} />
       </Router>
     </>
   );

@@ -1,0 +1,78 @@
+.container {
+  width: 280px;
+  margin: 0 auto 35px;
+  background-color: #284060;
+  padding: 45px 23px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 35px;
+  font-family: 'Playfair Display';
+}
+.description {
+  font-size: 16px;
+  color: #8b92ab;
+  margin-bottom: 35px;
+  font-family: 'Open Sans';
+}
+.email {
+  margin-bottom: 20px;
+}
+.email,
+.project {
+  font-size: 18px;
+  color: #fff;
+  font-family: 'Gotham Pro';
+  font-weight: bold;
+}
+.textEmailFirst {
+  display: block;
+}
+.textEmail,
+.textProject {
+  color: #fc842c;
+  text-decoration: underline;
+  position: relative;
+}
+.textProject {
+  padding-left: 40px;
+}
+.textProject::before {
+  content: '';
+  width: 31px;
+  display: block;
+  position: absolute;
+  height: 31px;
+  background-image: url('../../assets/icons/telegram.svg');
+  left: 0;
+  top: -4px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 695px;
+    margin: 0 auto 45px;
+  }
+  .description {
+    width: 450px;
+    margin: 0 auto 35px;
+  }
+  .textEmailFirst {
+    display: inline;
+  }
+}
+
+@media (min-width: 1200px) {
+  .description {
+    width: 100%;
+  }
+  .container {
+    width: 1120px;
+  }
+}

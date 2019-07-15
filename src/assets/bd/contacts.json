@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Виталий Диваков",
+    "position": "Product owner",
+    "email": "divakovvo@gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Наталья",
+    "position": "Project manager",
+    "email": "natali.rizado@.gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Алексей Потапов",
+    "position": "frondend - разработчик",
+    "email": "aleksey.potapov1811@gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Максим Марюхин",
+    "position": "frondend - разработчик",
+    "email": "maryuhin.z@gmail.com ",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Дмитрий Лапеев",
+    "position": "frondend - разработчик",
+    "email": "lapeev16@gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Вадим Верекета",
+    "position": "frondend - разработчик",
+    "email": "Kam1Cadzee@gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+
+  {
+    "name": "Виталий Калинбет",
+    "position": "team lead",
+    "email": "bosssvit@gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  },
+  {
+    "name": "Виктор",
+    "position": "backend - разработчик",
+    "email": "test.email@.gmail.com",
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+  }
+]
