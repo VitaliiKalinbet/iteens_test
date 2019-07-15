@@ -1,7 +1,7 @@
 .textBlock_item{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.0625rem;
+    margin-bottom: 0.825rem;
 }
 
 .textBlock_item:last-of-type{

@@ -23,11 +23,6 @@
     line-height: 1.65rem;
 }
 .btnStartTest{
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    color: #fff;
-
     margin-top: 2.375rem;
     margin-bottom: 5.325rem;
     cursor: pointer;
@@ -36,6 +31,13 @@
     padding: 0.625rem 2.5rem;
     border-radius: 1.875rem;
     box-shadow: 1px 4px 13px -2px rgba(252,132,44,1);
+}
+.btnStartTestLink{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
 }
 @media screen and (min-width: 768px) {
     .secondBlock{

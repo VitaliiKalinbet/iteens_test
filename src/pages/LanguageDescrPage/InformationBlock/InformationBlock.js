@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './InformationBlock.module.css';
 
@@ -7,7 +8,9 @@ const InformationBlock = ({ title, description }) => (
     <h2 className={styles.secondBlockTitle}>{title}</h2>
     <p className={styles.secondBlockDescription}>{description}</p>
     <button className={styles.btnStartTest} type="button">
-      Начать тест
+      <NavLink to="/test" className={styles.btnStartTestLink}>
+        Начать тест
+      </NavLink>
     </button>
   </div>
 );
