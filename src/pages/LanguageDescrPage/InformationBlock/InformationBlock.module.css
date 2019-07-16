@@ -49,8 +49,11 @@
 }
 @media screen and (min-width: 1280px){
     .secondBlock{
-        margin-top: 4.4375rem;
+        margin-top: 2.4375rem;
         text-align: left;
         width: 24.0625rem;
+    }
+    .btnStartTest{
+        margin-bottom: 1rem;
     }
 }

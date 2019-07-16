@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
+import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
@@ -7,7 +11,19 @@ import logo from '../../assets/img/languages/csharp.png';
 import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
-  state = {};
+  state = {
+    currentLanguage: '',
+  };
+
+  componentDidMount() {
+    this.props.setCurrentLanguage('Java');
+  }
+
+  comeBackBtn = e => {
+    const { onComeBack } = this.props;
+    e.preventDefault();
+    onComeBack();
+  };
 
   render() {
     return (
@@ -20,6 +36,7 @@ class LanguageDescrPage extends Component {
             questionPull={200}
             createdAt="20.12.2018"
             updatedAt="05.03.2019"
+            onClick={this.comeBackBtn}
           />
           <InformationBlock
             title="Основы C#"
@@ -39,6 +56,59 @@ class LanguageDescrPage extends Component {
       </>
     );
   }
+  // render() {
+  //   const {
+  //     title,
+  //     description,
+  //     image,
+  //     pullQuestions,
+  //     countQuestions,
+  //     createdAt,
+  //     updatedAt,
+  //   } = this.props;
+  //   return (
+  //     <>
+  //       <Header />
+  //       <section className={styles.languageDescrPageContainer}>
+  //         <StatisticBlock
+  //           logo={image}
+  //           questionCount={countQuestions}
+  //           questionPull={pullQuestions}
+  //           createdAt={createdAt}
+  //           updatedAt={updatedAt}
+  //         />
+  //         <InformationBlock title={title} description={description} />
+  //       </section>
+  //     </>
+  //   );
+  // }
 }
 
-export default LanguageDescrPage;
+LanguageDescrPage.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  countQuestions: PropTypes.number.isRequired,
+  pullQuestions: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string,
+  onComeBack: PropTypes.func.isRequired,
+};
+LanguageDescrPage.defaultProps = {
+  updatedAt: '00:00:00',
+};
+// const mapStateToProps = state => ({
+//   languageInfo: languageDescrPageSelectors.getLanguageById(state),
+// });
+
+const mapDispatchToProps = dispatch => ({
+  onComeBack: currentLanguage =>
+    dispatch(languageDescrPageActionCreators.onComeBack(currentLanguage)),
+  setCurrentLanguage: currentLanguage =>
+    dispatch(languageDescrPageActionCreators.currentLanguage(currentLanguage)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(LanguageDescrPage);
