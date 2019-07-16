@@ -1,87 +1,69 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, getState } from 'react-redux';
 import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
 import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
+import * as languageDescrPageOperations from '../../redux/languageDescrPage/languageDescrPageOperations';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
 import Header from '../../components/Header/Header';
-import logo from '../../assets/img/languages/csharp.png';
+// import logo from '../../assets/img/languages/csharp.png';
 import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
   state = {
-    currentLanguage: '',
+    timeStart: 0,
   };
 
-  componentDidMount() {
-    this.props.setCurrentLanguage('Java');
-  }
-
-  comeBackBtn = e => {
+  handleBtnBack = e => {
     const { onComeBack } = this.props;
     e.preventDefault();
     onComeBack();
   };
 
+  handleBtnStart = e => {
+    const { fetchTest, setStartTime } = this.props;
+    e.preventDefault();
+    fetchTest(languageDescrPageSelectors.getCurrentLanguageId(getState()));
+
+    this.setState({
+      timeStart: Date.now(),
+    });
+    setStartTime({ ...this.state });
+  };
+
   render() {
+    const {
+      title,
+      description,
+      image,
+      pullQuestions,
+      countQuestions,
+      createdAt,
+      updatedAt,
+    } = this.props;
     return (
       <>
         <Header />
         <section className={styles.languageDescrPageContainer}>
           <StatisticBlock
-            logo={logo}
-            questionCount={25}
-            questionPull={200}
-            createdAt="20.12.2018"
-            updatedAt="05.03.2019"
-            onClick={this.comeBackBtn}
+            logo={image}
+            questionCount={countQuestions}
+            questionPull={pullQuestions}
+            createdAt={createdAt}
+            updatedAt={updatedAt}
+            onClick={this.handleBtnBack}
           />
           <InformationBlock
-            title="Основы C#"
-            description="Тестирование включает в себя основы синтаксиса, принципы работы
-            языка, параметры и взаимодействия с другими языками. Тест
-            предназначен для новичков в языке, он поможет систематизировать
-            знания в C#, познакомится с принципами и первыми «подводными
-            камнями» которые преподносит эта технология. Тест включает в себя
-            более тысячи вопросов, что поможет корректно определить уровень
-            знаний, познакомить с неизвестными направлениями новичка и освежить
-            память профессионалу. Тематики вопросов включают в себя: ООП, основы
-            языка, строки, массивы, работа с файлами и базой, http cookie
-            session, работа со строками, базовый синтаксис, web, функции, работа
-            с безопасностью, форматы данных, работа с базой данных."
+            title={title}
+            description={description}
+            onStart={this.handleBtnStart}
           />
         </section>
       </>
     );
   }
-  // render() {
-  //   const {
-  //     title,
-  //     description,
-  //     image,
-  //     pullQuestions,
-  //     countQuestions,
-  //     createdAt,
-  //     updatedAt,
-  //   } = this.props;
-  //   return (
-  //     <>
-  //       <Header />
-  //       <section className={styles.languageDescrPageContainer}>
-  //         <StatisticBlock
-  //           logo={image}
-  //           questionCount={countQuestions}
-  //           questionPull={pullQuestions}
-  //           createdAt={createdAt}
-  //           updatedAt={updatedAt}
-  //         />
-  //         <InformationBlock title={title} description={description} />
-  //       </section>
-  //     </>
-  //   );
-  // }
 }
 
 LanguageDescrPage.propTypes = {
@@ -93,22 +75,25 @@ LanguageDescrPage.propTypes = {
   createdAt: PropTypes.string.isRequired,
   updatedAt: PropTypes.string,
   onComeBack: PropTypes.func.isRequired,
+  fetchTest: PropTypes.func.isRequired,
+  setStartTime: PropTypes.func.isRequired,
 };
 LanguageDescrPage.defaultProps = {
   updatedAt: '00:00:00',
 };
-// const mapStateToProps = state => ({
-//   languageInfo: languageDescrPageSelectors.getLanguageById(state),
-// });
+const mapStateToProps = state => ({
+  languageInfo: languageDescrPageSelectors.getLanguageById(state),
+});
 
 const mapDispatchToProps = dispatch => ({
   onComeBack: currentLanguage =>
     dispatch(languageDescrPageActionCreators.onComeBack(currentLanguage)),
-  setCurrentLanguage: currentLanguage =>
-    dispatch(languageDescrPageActionCreators.currentLanguage(currentLanguage)),
+  fetchTest: languageDescrPageOperations.fetchTest,
+  setStartTime: startTime =>
+    dispatch(languageDescrPageActionCreators.timeStart(startTime)),
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(LanguageDescrPage);

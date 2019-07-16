@@ -1,9 +1,17 @@
 import { combineReducers } from 'redux';
-import languageDescrReducer from './languageDescrPage/languageDescrPageReducer';
+import {
+  currentLanguageIdReducer,
+  userIdReducer,
+  currentQuestionReducer,
+  timeStartReducer,
+} from './languageDescrPage/languageDescrPageReducer';
 // тут импортируем редюсеры
 
 const rootReducer = combineReducers({
-  myReducers: languageDescrReducer,
+  currentLanguage: currentLanguageIdReducer,
+  userId: userIdReducer,
+  currentQuestion: currentQuestionReducer,
+  testTime: timeStartReducer,
   // тут подключаем редюсеры
 });
 

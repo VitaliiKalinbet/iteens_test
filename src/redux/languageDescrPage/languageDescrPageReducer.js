@@ -1,8 +1,6 @@
-import { combineReducers } from 'redux';
 import { ActionType } from './languageDescrPageActions';
 
-
-const currentLanguageReducer = (state = '', { type, payload }) => {
+export const currentLanguageIdReducer = (state = '', { type, payload }) => {
   switch (type) {
     case ActionType.COME_BACK_TO_STARTPAGE:
       return state.filter(item => item !== payload.currentLanguage);
@@ -10,15 +8,27 @@ const currentLanguageReducer = (state = '', { type, payload }) => {
       return state;
   }
 };
-// const currentLanguage = (state = '', { type, payload }) => {
-//   switch (type) {
-//     case ActionType.SET_CL:
-//       return [...state, payload];
-//     default:
-//       return state;
-//   }
-// };
-export default combineReducers({
-  currentLanguageBack: currentLanguageReducer,
-  currentLanguage,
-});
+export const userIdReducer = (state = '', { type, payload }) => {
+  switch (type) {
+    case ActionType.FETCH_TEST_SUCCESS:
+      return payload.test.userId;
+    default:
+      return state;
+  }
+};
+export const currentQuestionReducer = (state = [], { type, payload }) => {
+  switch (type) {
+    case ActionType.FETCH_TEST_SUCCESS:
+      return payload.test;
+    default:
+      return state;
+  }
+};
+export const timeStartReducer = (state = 0, { type, payload }) => {
+  switch (type) {
+    case ActionType.TIME_START:
+      return payload.time;
+    default:
+      return state;
+  }
+};
