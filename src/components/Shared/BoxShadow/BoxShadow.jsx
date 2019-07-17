@@ -7,8 +7,11 @@ const BoxShadow = ({ children, className, boxShadow }) => {
   return <div className={`${className} ${css[shadowName]}`}>{children}</div>;
 };
 BoxShadow.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.object])
-    .isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.object,
+    PropTypes.arrayOf(PropTypes.object),
+  ]).isRequired,
   boxShadow: PropTypes.number,
   className: PropTypes.string,
 };

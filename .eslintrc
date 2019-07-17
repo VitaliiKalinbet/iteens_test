@@ -34,7 +34,8 @@
       2,
       "always",
       { "ignoreClassFields": true }
-    ]
+    ],
+    "react/button-has-type": 0
   },
   "globals": {
     "window": true,
