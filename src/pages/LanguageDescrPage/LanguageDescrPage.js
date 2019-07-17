@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect, getState } from 'react-redux';
+import { connect } from 'react-redux';
 import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
 import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
 import * as languageDescrPageOperations from '../../redux/languageDescrPage/languageDescrPageOperations';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
+import store from '../../redux/store';
 import Header from '../../components/Header/Header';
 // import logo from '../../assets/img/languages/csharp.png';
 import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
-  state = {
-    timeStart: 0,
-  };
+  state = {};
 
   handleBtnBack = e => {
     const { onComeBack } = this.props;
     e.preventDefault();
-    onComeBack();
+    onComeBack(store.getState());
   };
 
   handleBtnStart = e => {
-    const { fetchTest, setStartTime } = this.props;
+    const { fetchTest, setStartTime, currentLanguageId } = this.props;
     e.preventDefault();
-    fetchTest(languageDescrPageSelectors.getCurrentLanguageId(getState()));
-
-    this.setState({
-      timeStart: Date.now(),
-    });
-    setStartTime({ ...this.state });
+    fetchTest(currentLanguageId);
+    setStartTime(Date.now());
   };
 
   render() {
@@ -77,20 +72,22 @@ LanguageDescrPage.propTypes = {
   onComeBack: PropTypes.func.isRequired,
   fetchTest: PropTypes.func.isRequired,
   setStartTime: PropTypes.func.isRequired,
+  currentLanguageId: PropTypes.string.isRequired,
 };
 LanguageDescrPage.defaultProps = {
   updatedAt: '00:00:00',
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
+  currentLanguageId: languageDescrPageSelectors.getCurrentLanguageId(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   onComeBack: currentLanguage =>
     dispatch(languageDescrPageActionCreators.onComeBack(currentLanguage)),
-  fetchTest: languageDescrPageOperations.fetchTest,
+  fetchTest: id => dispatch(languageDescrPageOperations.fetchTest(id)),
   setStartTime: startTime =>
-    dispatch(languageDescrPageActionCreators.timeStart(startTime)),
+    dispatch(languageDescrPageActionCreators.startTime(startTime)),
 });
 
 export default connect(

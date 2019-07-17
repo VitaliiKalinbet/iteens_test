@@ -4,14 +4,18 @@ import {
   userIdReducer,
   currentQuestionReducer,
   timeStartReducer,
+  // loadingReducer,
+  // errorReducer,
 } from './languageDescrPage/languageDescrPageReducer';
 // тут импортируем редюсеры
 
 const rootReducer = combineReducers({
-  currentLanguage: currentLanguageIdReducer,
+  currentLanguageId: currentLanguageIdReducer,
   userId: userIdReducer,
   currentQuestion: currentQuestionReducer,
   testTime: timeStartReducer,
+  // loading: loadingReducer,
+  // error: errorReducer,
   // тут подключаем редюсеры
 });
 

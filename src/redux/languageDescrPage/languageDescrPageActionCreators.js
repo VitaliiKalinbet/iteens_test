@@ -1,9 +1,9 @@
 import { ActionType } from './languageDescrPageActions';
 
-export const onComeBack = currentLanguage => ({
+export const onComeBack = currentLanguageId => ({
   type: ActionType.COME_BACK_TO_STARTPAGE,
   payload: {
-    currentLanguage,
+    currentLanguageId,
   },
 });
 export const fetchTestStart = () => ({
@@ -23,7 +23,7 @@ export const fetchTestError = error => ({
     error,
   },
 });
-export const timeStart = time => ({
+export const startTime = time => ({
   type: ActionType.TIME_START,
   payload: {
     time,

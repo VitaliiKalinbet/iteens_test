@@ -4,5 +4,6 @@ export const ActionType = {
   FETCH_TEST_SUCCESS: 'FETCH_TEST_SUCCESS',
   FETCH_TEST_ERROR: 'FETCH_TEST_ERROR',
   TIME_START: 'TIME_START',
+  SET_CL: 'SET_CL',
 };
 export const llll = () => null;
