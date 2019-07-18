@@ -45,6 +45,11 @@
   grid-template-columns: 1fr;
   grid-row-gap: 30px;
 }
+.loader {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
 @media (min-width: 768px) {
   .section {
     padding: 0 35px 60px 35px;
