@@ -1,0 +1,52 @@
+.container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal {
+  min-width: 300px;
+  max-width: 460px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 16px 15px;
+  box-sizing: border-box;
+}
+.text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.btn {
+  padding: 8px 8px;
+  font-size: 0.9rem;
+  border-width: 1px;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 16px 32px;
+  }
+  .btn {
+    font-size: 1.2rem;
+    padding: 8px 16px;
+
+  }
+  .text {
+    font-size: 1.4rem;
+  }
+}

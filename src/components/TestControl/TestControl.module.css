@@ -1,0 +1,39 @@
+.headerTest {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 8px;
+
+}
+.title {
+  color: #8b92ab;
+  font-family: "Gotham Pro", sans-serif;
+  font-weight: bold;
+  font-size: 1.175rem;
+}
+.orderQuestion {
+  font-family: "Gotham Pro", sans-serif;
+  font-weight: bold;
+  color: #fc842c;
+  font-size: 1.175rem;
+  text-align: center;
+  margin-top: 20px;
+
+  flex: 1 0 100%;
+}
+.btn {
+  padding: 5px 16px !important;
+}
+@media screen and (min-width: 580px) {
+  .orderQuestion {
+    flex: 0 0 auto;
+    margin-top: 0;
+    margin-bottom: -8px;
+    border-bottom: 2px solid #f37f2a;
+    padding: 8px 4px;
+  }
+  .btn {
+    order: 1;
+  }
+}
