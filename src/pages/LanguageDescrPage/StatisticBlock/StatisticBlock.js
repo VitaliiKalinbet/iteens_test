@@ -4,23 +4,30 @@ import { NavLink } from 'react-router-dom';
 import styles from './StatisticBlock.module.css';
 import TextBlockItem from './TextBlockItem/TextBlockItem';
 
+const changeDate = date => {
+  const infoDate = new Date(Date.parse(date));
+  return infoDate.toLocaleDateString();
+};
 const StatisticBlock = ({
   logo,
   questionCount,
   questionPull,
   createdAt,
   updatedAt,
+  onClick,
 }) => (
   <div className={styles.firstBlock}>
     <img className={styles.firstBlockImage} src={logo} alt="languageLogo" />
     <div className={styles.firstBlockTextInfo}>
       <TextBlockItem itemName="Количество вопросов" info={questionCount} />
       <TextBlockItem itemName="Пул вопросов" info={questionPull} />
-      <TextBlockItem itemName="Создан" info={createdAt} />
-      <TextBlockItem itemName="Обновлен" info={updatedAt} />
-      <NavLink to="/" className={styles.btnGoBack}>
-        Вернуться к списку тестов
-      </NavLink>
+      <TextBlockItem itemName="Создан" info={changeDate(createdAt)} />
+      <TextBlockItem itemName="Обновлен" info={changeDate(updatedAt)} />
+      <button className={styles.btnGoBack} type="button" onClick={onClick}>
+        <NavLink to="/" className={styles.btnGoBack_link}>
+          Вернуться к списку тестов
+        </NavLink>
+      </button>
     </div>
   </div>
 );
@@ -31,6 +38,7 @@ StatisticBlock.propTypes = {
   questionPull: PropTypes.number.isRequired,
   createdAt: PropTypes.string.isRequired,
   updatedAt: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default StatisticBlock;
