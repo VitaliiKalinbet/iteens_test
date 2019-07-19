@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
 import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
 import * as languageDescrPageOperations from '../../redux/languageDescrPage/languageDescrPageOperations';
+import * as startPageActions from '../../redux/startPageRedux/startPageActions';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
 import store from '../../redux/store';
 import Header from '../../components/Header/Header';
-// import logo from '../../assets/img/languages/csharp.png';
 import '../../fonts.css';
 
 class LanguageDescrPage extends Component {
@@ -30,13 +31,17 @@ class LanguageDescrPage extends Component {
 
   render() {
     const {
-      title,
-      description,
-      image,
-      pullQuestions,
-      countQuestions,
-      createdAt,
-      updatedAt,
+      languageInfo: {
+        title,
+        description,
+        image,
+        pullQuestions,
+        countQuestions,
+        createdAt,
+        updatedAt,
+      },
+      loading,
+      error,
     } = this.props;
     return (
       <>
@@ -55,6 +60,12 @@ class LanguageDescrPage extends Component {
             description={description}
             onStart={this.handleBtnStart}
           />
+          {loading && (
+            <div className={styles.loader}>
+              <Loader type="Circles" color="#00BFFF" height="100" width="100" />
+            </div>
+          )}
+          {error && alert(`Something went wrong!! ${error}`)}
         </section>
       </>
     );
@@ -62,29 +73,32 @@ class LanguageDescrPage extends Component {
 }
 
 LanguageDescrPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  countQuestions: PropTypes.number.isRequired,
-  pullQuestions: PropTypes.number.isRequired,
-  createdAt: PropTypes.string.isRequired,
-  updatedAt: PropTypes.string,
+  languageInfo: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    countQuestions: PropTypes.number.isRequired,
+    pullQuestions: PropTypes.number.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    updatedAt: PropTypes.string,
+  }).isRequired,
   onComeBack: PropTypes.func.isRequired,
   fetchTest: PropTypes.func.isRequired,
   setStartTime: PropTypes.func.isRequired,
   currentLanguageId: PropTypes.string.isRequired,
-};
-LanguageDescrPage.defaultProps = {
-  updatedAt: '00:00:00',
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
   currentLanguageId: languageDescrPageSelectors.getCurrentLanguageId(state),
+  loading: languageDescrPageSelectors.loading(state),
+  error: languageDescrPageSelectors.error(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   onComeBack: currentLanguage =>
-    dispatch(languageDescrPageActionCreators.onComeBack(currentLanguage)),
+    dispatch(startPageActions.onComeBack(currentLanguage)),
   fetchTest: id => dispatch(languageDescrPageOperations.fetchTest(id)),
   setStartTime: startTime =>
     dispatch(languageDescrPageActionCreators.startTime(startTime)),

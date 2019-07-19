@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 import styles from './StatisticBlock.module.css';
 import TextBlockItem from './TextBlockItem/TextBlockItem';
 
+const changeDate = date => {
+  const infoDate = new Date(Date.parse(date));
+  return infoDate.toLocaleDateString();
+};
 const StatisticBlock = ({
   logo,
   questionCount,
@@ -17,8 +21,8 @@ const StatisticBlock = ({
     <div className={styles.firstBlockTextInfo}>
       <TextBlockItem itemName="Количество вопросов" info={questionCount} />
       <TextBlockItem itemName="Пул вопросов" info={questionPull} />
-      <TextBlockItem itemName="Создан" info={createdAt} />
-      <TextBlockItem itemName="Обновлен" info={updatedAt} />
+      <TextBlockItem itemName="Создан" info={changeDate(createdAt)} />
+      <TextBlockItem itemName="Обновлен" info={changeDate(updatedAt)} />
       <button className={styles.btnGoBack} type="button" onClick={onClick}>
         <NavLink to="/" className={styles.btnGoBack_link}>
           Вернуться к списку тестов

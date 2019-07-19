@@ -1,22 +1,19 @@
 import { combineReducers } from 'redux';
 import {
-  currentLanguageIdReducer,
   userIdReducer,
-  currentQuestionReducer,
   timeStartReducer,
-  // loadingReducer,
-  // errorReducer,
 } from './languageDescrPage/languageDescrPageReducer';
+import currentQuestionReducer from './languageDescrPage/languageDescrPageCurrentQuestionReducer';
+import startPageReducer from './startPageRedux/startPageReducers';
+import startPageSetLanguage from './startPageRedux/startPageSetLanguage';
 // тут импортируем редюсеры
 
 const rootReducer = combineReducers({
-  currentLanguageId: currentLanguageIdReducer,
+  currentLanguageId: startPageSetLanguage,
   userId: userIdReducer,
   currentQuestion: currentQuestionReducer,
   testTime: timeStartReducer,
-  // loading: loadingReducer,
-  // error: errorReducer,
-  // тут подключаем редюсеры
+  languagesInfoArr: startPageReducer,
 });
 
 export default rootReducer;
