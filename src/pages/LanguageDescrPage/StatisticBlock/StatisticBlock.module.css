@@ -17,13 +17,19 @@
     margin: 0 auto;
 }
 .btnGoBack{
-    color: #a4aabd;
     border: 0;
     background-color: transparent;
     cursor: pointer;
-    text-decoration: none;
     display: block;
     padding-bottom: 2.7125rem;
+}
+.btnGoBack_link{
+    color: #a4aabd;
+    text-decoration: none;
+    font-family: 'Open Sans';
+    font-size: 0.875rem;
+    line-height: 1rem;
+    font-weight: 400;
 }
 .btnGoBack::before{
     content: url('../../../assets/icons/baseline-keyboard_return-24px.svg');
@@ -47,12 +53,12 @@
 }
 @media screen and (min-width: 1280px){
     .firstBlockImage{
-        margin-bottom: 2rem;
-        width: 11.5625rem;
-        height: 12.875rem;
+        margin-bottom: 3rem;
+        /* width: 10.5625rem;
+        height: 10.875rem; */
     }
     .firstBlock{
         width: 28.4375rem;
-        height: 43.5rem;
+        height: 37.5rem;
     }
 }
