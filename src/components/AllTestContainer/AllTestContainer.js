@@ -1,51 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as allTestContainerSelectors from '../../redux/allTestContainer/allTestContainerSelectors';
 import TestQuestion from '../TestQuestion/TestQuestion';
 import TestImage from '../TestImage/TestImage';
 import TestAnswer from '../TestAnswer/TestAnswer';
 import TestExplanation from '../TestExplanation/TestExplanation';
 import styles from './AllTestContainer.module.css';
 
-
-// info = [
-//   {
-//     question: ' ',
-//     language: ' ',
-//     codeString: '',
-//     questions: [],
-//     isCorrectAnswered: true,
-//     correctAnswered: '',
-//     incorrectAnswered: '',
-//     description: '',
-//   },
-// ];
-const AllTestContainer = ({ info }) =>
-  info.map(item => (
-    <div className={styles.item} key={Number.rand()}>
+const AllTestContainer = ({ questions, languageTitle, explanation }) =>
+  questions.map(item => (
+    <div className={styles.item} key={item.questionId}>
       <TestQuestion question={item.question} />
-      <TestImage language={item.language} codeString={item.codeString} />
+      <TestImage language={languageTitle} codeString={item.code} />
       <TestAnswer
-        questions={item.questions}
+        questions={questions}
         // answered
-        isCorrectAnswered={item.isCorrectAnswered}
-        correctAnswered="for, while, do while,foreach"
+        isCorrectAnswered={item.userAnswerCorrectly}
+        correctAnswered={item.rightAnswer}
         incorrectAnswered="for, while"
       />
-      <TestExplanation description="Циклы являются управляющими конструкциями, позволяя в зависимости от определенных условий выполнять некоторое действие множество раз. В C# имеются следующие виды циклов::" />
+      <TestExplanation description={explanation} />
     </div>
   ));
 AllTestContainer.propTypes = {
-  info: PropTypes.arrayOf(
-      PropTypes.shape(
-        question: PropTypes.string.isRequired,
-        language: PropTypes.string.isRequired,
-        codeString: PropTypes.string.isRequired,
-        questions: PropTypes.array.isRequired,
-        isCorrectAnswered: PropTypes.bool,
-        correctAnswered: PropTypes.string,
-        incorrectAnswered: PropTypes.string,
-        description: PropTypes.string.isRequired,
-      ).isRequired,
-  ).isRequired,
+  questions: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
+  languageTitle: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
+  explanation: PropTypes.string.isRequired,
 };
-export default AllTestContainer;
+const mapStateToProps = state => ({
+  questions: allTestContainerSelectors.getQuestions(state),
+  languageTitle: allTestContainerSelectors.getLanguageTitle(state),
+  // explanation: //откуда получать описание ответа???
+});
+export default connect(
+  mapStateToProps,
+  null,
+)(AllTestContainer);
