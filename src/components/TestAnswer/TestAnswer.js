@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
@@ -8,72 +6,54 @@ import happyCat from '../../assets/img/cat/happyCat.jpg';
 import pensiveСat from '../../assets/img/cat/pensiveСat.jpg';
 
 const cx = classNames.bind(styles);
-let labelClassNames;
 
 const TestAnswer = ({
   questions,
-  resultAnswer,
-  onClickAnswer,
-  onChangeUserAnswer,
+  answered,
+  isCorrectAnswered,
+  correctAnswered,
+  incorrectAnswered,
 }) => (
   <>
     <div className={styles.container}>
       <div className={styles.wrapperImgInput}>
         <div className={styles.inputWrapper}>
-          {questions.map((question, index) => {
-            if (resultAnswer) {
-              labelClassNames =
-                resultAnswer.userAnswer === resultAnswer.rightAnswer
-                  ? cx({
-                      label: true,
-                      labelCorrect: index + 1 === resultAnswer.rightAnswer,
-                    })
-                  : cx({
-                      label: true,
-                      labelIncorrect: index + 1 === resultAnswer.userAnswer,
-                      labelCorrect: index + 1 === resultAnswer.rightAnswer,
-                    });
-            } else {
-              labelClassNames = cx({
-                label: true,
-              });
-            }
+          {questions.map(question => {
+            const labelClassNames = cx({
+              label: true,
+              labelCorrect: question === correctAnswered,
+              labelIncorrect: question === incorrectAnswered,
+            });
+
             return (
               <label
-                key={question._id}
-                htmlFor={question._id}
+                key={question}
+                htmlFor={question}
                 className={labelClassNames}
               >
                 <input
-                  id={question._id}
+                  id={question}
                   className={styles.input}
                   name="answer"
                   type="radio"
-                  value={question.answerText}
-                  onChange={onChangeUserAnswer}
-                  data-number={question.answerNumber}
                 />
-                {question.answerText}
+                {question}
               </label>
             );
           })}
         </div>
-        {resultAnswer &&
-          (resultAnswer.userAnswerCorrectly ? (
+        {answered &&
+          (isCorrectAnswered ? (
             <img className={styles.img} alt="cat" src={happyCat} />
           ) : (
             <img className={styles.img} alt="cat" src={pensiveСat} />
           ))}
       </div>
 
-      {!resultAnswer && (
+      {!answered && (
         <div className={styles.tabletContainerButton}>
           <div className={styles.buttonContainer}>
-            <button
-              onClick={onClickAnswer}
-              type="submit"
-              className={styles.buttonConfirm}
-            >
+            <button type="submit" className={styles.buttonConfirm}>
               Ответить
             </button>
             <button type="submit" className={styles.buttonSkip}>
@@ -83,14 +63,10 @@ const TestAnswer = ({
         </div>
       )}
     </div>
-    {!resultAnswer && (
+    {!answered && (
       <div className={styles.mobileContainerButton}>
         <div className={styles.buttonContainer}>
-          <button
-            onClick={onClickAnswer}
-            type="submit"
-            className={styles.buttonConfirm}
-          >
+          <button type="submit" className={styles.buttonConfirm}>
             Ответить
           </button>
           <button type="submit" className={styles.buttonSkip}>
@@ -103,20 +79,18 @@ const TestAnswer = ({
 );
 
 TestAnswer.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  resultAnswer: PropTypes.oneOfType([
-    PropTypes.shape({
-      rightAnswer: PropTypes.number.isRequired,
-      userAnswer: PropTypes.number.isRequired,
-      userAnswerCorrectly: PropTypes.bool.isRequired,
-    }),
-    PropTypes.bool,
-  ]).isRequired,
-
-  onClickAnswer: PropTypes.func.isRequired,
-  onChangeUserAnswer: PropTypes.func.isRequired,
+  questions: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  answered: PropTypes.bool,
+  isCorrectAnswered: PropTypes.bool,
+  correctAnswered: PropTypes.string,
+  incorrectAnswered: PropTypes.string,
 };
 
-TestAnswer.defaultProps = {};
+TestAnswer.defaultProps = {
+  answered: true,
+  isCorrectAnswered: true,
+  correctAnswered: '',
+  incorrectAnswered: '',
+};
 
 export default TestAnswer;
