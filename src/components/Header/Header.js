@@ -11,7 +11,13 @@ const Header = () => (
       target="_blank"
       href="https://goit.ua/"
     >
-      <img className={style.logo} src={logo} alt="logo" />
+      <img
+        width="60"
+        height="18"
+        className={style.logo}
+        src={logo}
+        alt="logo"
+      />
     </a>
     <Link className={style.link} to="/contacts">
       контакты
