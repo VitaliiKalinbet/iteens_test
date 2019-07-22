@@ -87,7 +87,10 @@ LanguageDescrPage.propTypes = {
   setStartTime: PropTypes.func.isRequired,
   currentLanguageId: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
+  error: PropTypes.string,
+};
+LanguageDescrPage.defaultProps = {
+  error: '',
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
