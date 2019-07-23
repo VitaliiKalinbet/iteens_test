@@ -10,7 +10,7 @@ import ContactPage from './pages/ContactPage/ContactPage';
 
 function App() {
   return (
-    <ToastProvider>
+    <ToastProvider placement="top-center">
       <>
         <Router>
           <Route exact path="/" component={StartPage} />
