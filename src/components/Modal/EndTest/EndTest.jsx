@@ -9,11 +9,16 @@ function EndTest({ endTest, continueTest }) {
     <div className={css.container}>
       <BoxShadow boxShadow={6} className={css.modal}>
         <p className={css.text}>
-          У Вас есть неотвеченные вопросы. Все равно хотите завершит тест?
+          У Вас есть неотвеченные вопросы. Все равно хотите завершить тест?
         </p>
         <div className={css.controls}>
-          <Button variant="outlined" handleClick={endTest} className={css.btn}>
-            Да, закончить!
+          <Button
+            variant="outlined"
+            handleClick={endTest}
+            className={css.btn}
+            data-redirect="/"
+          >
+            Да, выйти!
           </Button>
           <Button
             variant="simple"

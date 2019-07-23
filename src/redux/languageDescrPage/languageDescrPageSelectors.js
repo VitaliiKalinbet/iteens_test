@@ -9,3 +9,6 @@ export const getLanguageById = state => {
 export const loading = state => state.currentQuestion.loading;
 
 export const error = state => state.currentQuestion.error;
+
+export const startTime = state => state.testTime.startTime;
+export const endTime = state => state.testTime.endTime;
