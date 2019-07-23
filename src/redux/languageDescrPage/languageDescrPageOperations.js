@@ -6,16 +6,19 @@ import {
   fetchTestError,
 } from './languageDescrPageActionCreators';
 
-export const fetchTest = id => dispatch => {
-  dispatch(fetchTestStart());
-
-  axios
-    .get(`https://test.goit.co.ua/api/tests/${id}`)
-    .then(response => {
+export const fetchTest = id => {
+  return async dispatch => {
+    try {
+      dispatch(fetchTestStart());
+      const response = await axios.get(
+        `https://test.goit.co.ua/api/tests/${id}`,
+      );
       dispatch(fetchTestSuccess(response.data));
-    })
-    .catch(error => {
+    } catch (error) {
       dispatch(fetchTestError(error));
-    });
+      return error;
+    }
+    return '';
+  };
 };
 export const llll = () => null;

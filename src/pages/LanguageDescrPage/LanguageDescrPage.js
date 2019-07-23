@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withToastManager } from 'react-toast-notifications';
 import Loader from 'react-loader-spinner';
 import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
 import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
@@ -22,11 +23,24 @@ class LanguageDescrPage extends Component {
     onComeBack(store.getState());
   };
 
-  handleBtnStart = e => {
-    const { fetchTest, setStartTime, currentLanguageId } = this.props;
+  addNotification = error => {
+    const { toastManager } = this.props;
+    toastManager.add(error, {
+      appearance: 'error',
+      autoDismiss: true,
+      pauseOnHover: true,
+    });
+  };
+
+  handleBtnStart = async e => {
+    const { setStartTime, fetchTest, currentLanguageId } = this.props;
     e.preventDefault();
-    fetchTest(currentLanguageId);
-    setStartTime(Date.now());
+    const tests = await fetchTest(currentLanguageId);
+    if (tests) {
+      this.addNotification(tests.message);
+    } else {
+      setStartTime(Date.now());
+    }
   };
 
   render() {
@@ -59,13 +73,13 @@ class LanguageDescrPage extends Component {
             title={title}
             description={description}
             onStart={this.handleBtnStart}
+            error={error}
           />
           {loading && (
             <div className={styles.loader}>
               <Loader type="Circles" color="#00BFFF" height="100" width="100" />
             </div>
           )}
-          {error && alert(`Something went wrong!! ${error}`)}
         </section>
       </>
     );
@@ -87,10 +101,15 @@ LanguageDescrPage.propTypes = {
   setStartTime: PropTypes.func.isRequired,
   currentLanguageId: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string,
+  error: PropTypes.objectOf(PropTypes.string),
+  toastManager: PropTypes.shape({
+    add: PropTypes.func,
+    remove: PropTypes.func,
+    toasts: PropTypes.array,
+  }).isRequired,
 };
 LanguageDescrPage.defaultProps = {
-  error: '',
+  error: null,
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
@@ -106,8 +125,7 @@ const mapDispatchToProps = dispatch => ({
   setStartTime: startTime =>
     dispatch(languageDescrPageActionCreators.startTime(startTime)),
 });
-
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LanguageDescrPage);
+)(withToastManager(LanguageDescrPage));
