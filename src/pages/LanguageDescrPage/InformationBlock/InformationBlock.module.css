@@ -15,7 +15,7 @@
 .secondBlockDescription{
     margin-left: 1.25rem;
     color: #2e3038;
-    text-align: left;
+    text-align: justify;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -57,7 +57,7 @@
         margin-bottom: 1.8rem;
     }
     .btnStartTest{
-        margin-top: 1.5rem;
-        margin-bottom: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
     }
 }
