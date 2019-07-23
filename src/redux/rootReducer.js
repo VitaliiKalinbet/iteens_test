@@ -6,6 +6,11 @@ import {
 import currentQuestionReducer from './languageDescrPage/languageDescrPageCurrentQuestionReducer';
 import startPageReducer from './startPageRedux/startPageReducers';
 import startPageSetLanguage from './startPageRedux/startPageSetLanguage';
+import {
+  userAnswerReducer,
+  resultAnsweredReducer,
+  nextQuestionAnswer,
+} from './testPage/testPageReducers';
 // тут импортируем редюсеры
 
 const rootReducer = combineReducers({
@@ -14,6 +19,9 @@ const rootReducer = combineReducers({
   currentQuestion: currentQuestionReducer,
   testTime: timeStartReducer,
   languagesInfoArr: startPageReducer,
+  userAnswer: userAnswerReducer,
+  resultAnswered: resultAnsweredReducer,
+  nextQuestion: nextQuestionAnswer,
 });
 
 export default rootReducer;

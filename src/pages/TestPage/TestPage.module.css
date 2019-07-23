@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  width: 280px;
+  z-index: 1;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
