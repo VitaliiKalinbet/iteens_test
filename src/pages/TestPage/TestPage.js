@@ -6,6 +6,7 @@ import TestExplanation from '../../components/TestExplanation/TestExplanation';
 import Header from '../../components/Header/Header';
 import TestQuestion from '../../components/TestQuestion/TestQuestion';
 import TestControl from '../../components/TestControl/TestControl';
+import NewTestImage from '../../components/NewTestImage/NewTestImage';
 import styles from './TestPage.module.css';
 
 class TestPage extends Component {
@@ -46,8 +47,8 @@ class TestPage extends Component {
 
   render() {
     const { currentQuestion, resultAnswered } = this.props;
-
-    //
+    const desktopImage = 'https://test.goit.co.ua/images/Java-2.jpg';
+    const mobileImage = 'https://test.goit.co.ua/images/Java-2-mob.jpg';
     return (
       <>
         <Header />
@@ -63,6 +64,10 @@ class TestPage extends Component {
                 length={currentQuestion.allQuestionsCount}
               />
               <TestQuestion question={currentQuestion.question.questionText} />
+              <NewTestImage
+                desktopImage={desktopImage}
+                mobileImage={mobileImage}
+              />
               <TestAnswer
                 questions={currentQuestion.question.answers}
                 onChangeUserAnswer={this.onChangeUserAnswer}
@@ -106,6 +111,8 @@ TestPage.propTypes = {
       questionId: PropTypes.string,
       answers: PropTypes.array,
       questionText: PropTypes.string,
+      image: PropTypes.string,
+      imageMobile: PropTypes.string,
     }),
     userId: PropTypes.string,
   }).isRequired,
