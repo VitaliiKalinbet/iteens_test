@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/img/logo/logo.png';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import logo from '../../assets/img/logo/logo.svg';
 import style from './Header.module.css';
+import resetId from './resetId';
+import getUserId from '../../redux/header/headerSelector';
 
-const Header = () => (
+const Header = ({ id = '' }) => (
   <nav className={style.nav}>
-    <a
+    <Link
+      onClick={() => {
+        if (id) resetId(id);
+      }}
       className={style.a}
-      rel="noopener noreferrer"
-      target="_blank"
-      href="https://goit.ua/"
+      to="/"
     >
       <img
         width="60"
@@ -18,11 +23,23 @@ const Header = () => (
         src={logo}
         alt="logo"
       />
-    </a>
+    </Link>
     <Link className={style.link} to="/contacts">
       контакты
     </Link>
   </nav>
 );
 
-export default Header;
+const mapStateToProps = state => ({
+  id: getUserId(state),
+});
+
+Header.defaultProps = {
+  id: '',
+};
+
+Header.propTypes = {
+  id: PropTypes.string,
+};
+
+export default connect(mapStateToProps)(Header);

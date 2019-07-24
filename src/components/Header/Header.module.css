@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 .logo {
-  width: 60px;
+  width: 88px;
   height: auto;
 }
 .link, .link:hover, .link:active, .link:focus {
@@ -20,11 +20,17 @@
   font-family: "Open Sans";
 }
 @media(min-width: 768px) {
+  .logo {
+    width: 117px;
+  }
   .nav {
     padding: 25px 35px;
   }
 }
 @media(min-width: 1280px) {
+  .logo {
+    width: 128px;
+  }
   .nav {
     padding: 40px 60px;
   }
