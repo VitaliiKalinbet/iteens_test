@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux';
 import { ActionType } from './languageDescrPageActions';
+import { ActionType as ActionTypeTestPage } from '../testPage/testPageActions';
 
-const currentQuestionReducer = (state = [], { type, payload }) => {
+const currentQuestionReducer = (state = null, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_TEST_SUCCESS:
+      return payload.test;
+    case ActionTypeTestPage.REWRITE_CURRENTQUESTION:
       return payload.test;
     default:
       return state;
