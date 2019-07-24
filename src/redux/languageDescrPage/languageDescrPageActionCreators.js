@@ -17,9 +17,15 @@ export const fetchTestError = error => ({
     error,
   },
 });
-export const startTime = time => ({
+export const startTime = () => ({
   type: ActionType.TIME_START,
   payload: {
-    time,
+    time: Date.now(),
+  },
+});
+export const endTime = () => ({
+  type: ActionType.TIME_END,
+  payload: {
+    time: Date.now(),
   },
 });

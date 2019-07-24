@@ -3,5 +3,6 @@ export const ActionType = {
   FETCH_TEST_SUCCESS: 'FETCH_TEST_SUCCESS',
   FETCH_TEST_ERROR: 'FETCH_TEST_ERROR',
   TIME_START: 'TIME_START',
+  TIME_END: 'TIME_END',
 };
 export const llll = () => null;

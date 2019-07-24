@@ -8,6 +8,7 @@ const Button = ({
   className,
   variant,
   handleClick,
+  ...rest
 }) => {
   const style = css[variant];
   return (
@@ -15,6 +16,7 @@ const Button = ({
       type={type}
       className={`${style} ${className}`}
       onClick={handleClick}
+      {...rest}
     >
       {children}
     </button>

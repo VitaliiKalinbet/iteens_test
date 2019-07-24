@@ -8,14 +8,17 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+
 }
+
 .modal {
-  min-width: 300px;
-  max-width: 460px;
+  min-width: 280px;
+  max-width: 280px;
   background-color: #fff;
   border-radius: 5px;
   padding: 16px 15px;
   box-sizing: border-box;
+  padding-bottom: 0;
 }
 .text {
   font-family: "Open Sans", sans-serif;
@@ -40,6 +43,7 @@
 @media screen and (min-width: 768px) {
   .modal {
     padding: 16px 32px;
+    max-width: 460px;
   }
   .btn {
     font-size: 1.2rem;
