@@ -12,7 +12,17 @@ import styles from './TestPage.module.css';
 class TestPage extends Component {
   state = {
     userAnswerNumber: null,
+    userId: null,
   };
+
+  componentDidMount() {
+    const { currentQuestion } = this.props;
+    if (currentQuestion) {
+      const { userId } = currentQuestion;
+
+      this.setState({ userId });
+    }
+  }
 
   onChangeUserAnswer = e => {
     this.setState({ userAnswerNumber: Number(e.target.dataset.number) });
@@ -25,10 +35,10 @@ class TestPage extends Component {
   };
 
   onClickAnswer = () => {
-    const { questionNumber, question, userId } = this.props.currentQuestion;
+    const { questionNumber, question } = this.props.currentQuestion;
     const { questionId } = question;
 
-    const { userAnswerNumber } = this.state;
+    const { userAnswerNumber, userId } = this.state;
 
     if (userAnswerNumber) {
       const userAnswer = {
@@ -37,6 +47,7 @@ class TestPage extends Component {
         userAnswerNumber,
       };
       this.props.fetchResultAnswer(userId, userAnswer);
+      this.setState({ userAnswerNumber: null });
     }
   };
 
@@ -45,15 +56,30 @@ class TestPage extends Component {
     this.props.resetFields();
   };
 
+  onClickSkipQuestion = () => {
+    const { questionNumber, question } = this.props.currentQuestion;
+    const { questionId } = question;
+    const { userId } = this.state;
+    const questionSkip = { questionNumber, questionId };
+    this.props.fetchSkipTheQuestion(userId, questionSkip);
+    this.props.resetUserAnswer();
+  };
+
   render() {
     const { currentQuestion, resultAnswered } = this.props;
-    const desktopImage = 'https://test.goit.co.ua/images/Java-2.jpg';
-    const mobileImage = 'https://test.goit.co.ua/images/Java-2-mob.jpg';
+    let desktopImage;
+    let mobileImage;
+    if (currentQuestion && currentQuestion.question.image) {
+      desktopImage = `https://test.goit.co.ua/images/${currentQuestion.question.image}`;
+      mobileImage = `https://test.goit.co.ua/images/${currentQuestion.question.imageMobile}`;
+    }
     return (
       <>
         <Header />
         {!currentQuestion && (
-          <Loader type="Puff" color="#00BFFF" height="100" width="100" />
+          <div className={styles.loader}>
+            <Loader type="Puff" color="#00BFFF" height="100" width="100" />
+          </div>
         )}
         {currentQuestion && (
           <>
@@ -61,17 +87,22 @@ class TestPage extends Component {
               <TestControl
                 title={currentQuestion.languageTitle}
                 current={currentQuestion.questionNumber}
+                finalResult={false}
                 length={currentQuestion.allQuestionsCount}
               />
               <TestQuestion question={currentQuestion.question.questionText} />
-              <NewTestImage
-                desktopImage={desktopImage}
-                mobileImage={mobileImage}
-              />
+
+              {currentQuestion.question.image && (
+                <NewTestImage
+                  desktopImage={desktopImage}
+                  mobileImage={mobileImage}
+                />
+              )}
               <TestAnswer
                 questions={currentQuestion.question.answers}
                 onChangeUserAnswer={this.onChangeUserAnswer}
                 onClickAnswer={this.onClickAnswer}
+                onClickSkipQuestion={this.onClickSkipQuestion}
                 resultAnswer={resultAnswered}
               />
             </div>
@@ -81,7 +112,7 @@ class TestPage extends Component {
         {resultAnswered && (
           <TestExplanation
             onClickNextQuestion={this.onClickNextQuestion}
-            description="Циклы являются управляющими конструкциями, позволяя в зависимости от определенных условий выполнять некоторое действие множество раз. В C# имеются следующие виды циклов::"
+            description={resultAnswered.explanation}
           />
         )}
       </>
@@ -91,7 +122,9 @@ class TestPage extends Component {
 
 TestPage.propTypes = {
   fetchResultAnswer: PropTypes.func.isRequired,
+  fetchSkipTheQuestion: PropTypes.func.isRequired,
   onChangeAnswer: PropTypes.func.isRequired,
+  resetUserAnswer: PropTypes.func.isRequired,
   rewriteCurrentQuestion: PropTypes.func.isRequired,
   resetFields: PropTypes.func.isRequired,
   resultAnswered: PropTypes.oneOfType([
@@ -99,7 +132,7 @@ TestPage.propTypes = {
       rightAnswer: PropTypes.number,
       userAnswer: PropTypes.number,
       userAnswerCorrectly: PropTypes.bool,
-      questionExplanation: PropTypes.string,
+      explanation: PropTypes.string,
     }),
     PropTypes.bool,
   ]).isRequired,
@@ -115,7 +148,12 @@ TestPage.propTypes = {
       imageMobile: PropTypes.string,
     }),
     userId: PropTypes.string,
-  }).isRequired,
+  }),
+  userId: PropTypes.string.isRequired,
+};
+
+TestPage.defaultProps = {
+  currentQuestion: null,
 };
 
 export default TestPage;

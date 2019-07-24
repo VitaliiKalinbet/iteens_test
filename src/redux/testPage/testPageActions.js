@@ -1,7 +1,4 @@
 export const ActionType = {
-  FETCH_CURRENTQUESTION_START: 'FETCH_CURRENTQUESTION_START',
-  FETCH_CURRENTQUESTION_SUCCESS: 'FETCH_CURRENTQUESTION_SUCCESS',
-  FETCH_CURRENTQUESTION_ERROR: 'FETCH_CURRENTQUESTION_ERROR',
   REWRITE_CURRENTQUESTION: 'REWRITE_CURRENTQUESTION',
   CHANGE_USER_ANSWER: 'CHANGE_USER_ANSWER',
   CHANGE_USER_ANSWER_QUESTION_NUMBER: 'CHANGE_USER_ANSWER_QUESTION_NUMBER',
@@ -12,30 +9,18 @@ export const ActionType = {
   RESET_RESULT_ANSWER: 'RESET_RESULT_ANSWER',
   FETCH_NEXT_QUESTION_SUCCESS: 'FETCH_NEXT_QUESTION_SUCCESS',
   RESET_NEXT_QUESTION: 'RESET_NEXT_QUESTION',
+  FETCH_SKIP_QUESTION_START: 'FETCH_SKIP_QUESTION_START',
+  FETCH_SKIP_QUESTION_SUCCESS: 'FETCH_SKIP_QUESTION_SUCCESS',
+  FETCH_SKIP_QUESTION_ERROR: 'FETCH_SKIP_ERROR',
 };
 
-/* currentQuestion */
+/* rewriteCurrentQuestion */
 
-export const fetchCurrentQuestionStart = () => ({
-  type: ActionType.FETCH_CURRENTQUESTION_START,
-});
-
-export const fetchCurrentQuestionSuccess = currentQuestion => ({
-  type: ActionType.FETCH_CURRENTQUESTION_SUCCESS,
-  payload: {
-    currentQuestion,
-  },
-});
 export const rewriteCurrentQuestion = test => ({
   type: ActionType.REWRITE_CURRENTQUESTION,
   payload: {
     test,
   },
-});
-
-export const fetchCurrentQuestionError = error => ({
-  type: ActionType.FETCH_CURRENTQUESTION_ERROR,
-  payload: { error },
 });
 
 /* userAnswer */
@@ -101,5 +86,25 @@ export const resetNextQuestion = () => ({
   type: ActionType.RESET_NEXT_QUESTION,
   payload: {
     reset: null,
+  },
+});
+
+/* Action skip the question */
+
+export const fetchSkipTheQuestionStart = () => ({
+  type: ActionType.FETCH_SKIP_QUESTION_START,
+});
+
+export const fetchSkipTheQuestionSuccess = test => ({
+  type: ActionType.FETCH_SKIP_QUESTION_SUCCESS,
+  payload: {
+    test,
+  },
+});
+
+export const fetchSkipTheQuestionError = error => ({
+  type: ActionType.FETCH_SKIP_QUESTION_ERROR,
+  payload: {
+    error,
   },
 });
