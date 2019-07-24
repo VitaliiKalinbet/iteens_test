@@ -14,8 +14,8 @@ const TestControl = ({ title, current, length, finalResult, history }) => {
   return (
     <Toggable>
       {({ isToggle, toggle }) => {
-        const endTest = () => {
-          history.push('/result');
+        const endTest = e => {
+          history.push(e.target.dataset.redirect);
         };
         return (
           <div className={css.headerTest}>
@@ -26,6 +26,7 @@ const TestControl = ({ title, current, length, finalResult, history }) => {
                 variant="outlined"
                 handleClick={endTest}
                 className={css.btn}
+                data-redirect="/result"
               >
                 Результат
               </Button>

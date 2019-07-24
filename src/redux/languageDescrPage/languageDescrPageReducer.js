@@ -8,12 +8,20 @@ export const userIdReducer = (state = '', { type, payload }) => {
       return state;
   }
 };
-export const timeStartReducer = (state = 0, { type, payload }) => {
+export const timeStartReducer = (
+  state = {
+    startTime: null,
+    endTime: null,
+  },
+  { type, payload },
+) => {
   switch (type) {
     case ActionType.TIME_START:
       return {
         startTime: payload.time,
       };
+    case ActionType.TIME_END:
+      return { ...state, endTime: payload.time };
     default:
       return state;
   }
