@@ -26,6 +26,7 @@
   },
   "rules": {
     "no-console": 1,
+    "no-underscore-dangle": [2, { "allow": [] }],
     "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-onchange": 0,
