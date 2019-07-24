@@ -50,6 +50,11 @@
   display: flex;
   justify-content: center;
 }
+.error {
+  text-align: center;
+  color: red;
+  font-size: 18px;
+}
 @media (min-width: 768px) {
   .section {
     padding: 0 35px 60px 35px;
@@ -94,4 +99,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 35px;
   }
+  .error {
+    font-size: 22px;
+  }
 }
+
