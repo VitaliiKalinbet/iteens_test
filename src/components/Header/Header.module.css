@@ -8,7 +8,7 @@
   text-decoration: none;
 }
 .logo {
-  width: 60px;
+  width: 88px;
   height: auto;
 }
 .link, .link:hover, .link:active, .link:focus {
@@ -23,9 +23,15 @@
   .nav {
     padding: 25px 35px;
   }
+  .logo {
+    width: 117px;
+  }
 }
 @media(min-width: 1280px) {
   .nav {
     padding: 40px 60px;
+  }
+  .logo {
+    width: 128px;
   }
 }
