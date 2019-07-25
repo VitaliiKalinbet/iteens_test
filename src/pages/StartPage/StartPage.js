@@ -44,7 +44,7 @@ class StartPage extends Component {
               ))}
             </ul>
           )}
-          {error && <p>Что-то пошло не так (</p>}
+          {error && <p className={style.error}>Что-то пошло не так(</p>}
         </section>
       </Fragment>
     );
