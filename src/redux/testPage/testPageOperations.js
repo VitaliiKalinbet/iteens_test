@@ -45,18 +45,11 @@ export const fetchSkipTheQuestion = (userID, question) => dispatch => {
   axios
     .post(`/answer/skip/${userID}`, question)
     .then(response => {
-      console.log(response.data);
-      const {
-        questionNumber,
-        allQuestionsCount,
-        question,
-        languageTitle,
-      } = response.data;
-
+      const { questionNumber, allQuestionsCount } = response.data;
+      const question = response.data.question || response.data.nextQuestion;
       const newNextQuestion = {
         questionNumber,
         allQuestionsCount,
-        languageTitle,
         question,
       };
 

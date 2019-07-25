@@ -1,3 +1,4 @@
+/* eslint no-shadow: 0 */
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
@@ -13,14 +14,23 @@ class TestPage extends Component {
   state = {
     userAnswerNumber: null,
     userId: null,
+    languageTitle: '',
   };
 
   componentDidMount() {
     const { currentQuestion } = this.props;
     if (currentQuestion) {
-      const { userId } = currentQuestion;
+      const { userId, languageTitle } = currentQuestion;
+      this.setState({ userId, languageTitle });
+    }
+  }
 
-      this.setState({ userId });
+  componentDidUpdate() {
+    const { userId, languageTitle } = this.state;
+    if (!userId || !languageTitle) {
+      const { currentQuestion } = this.props;
+      const { userId, languageTitle } = currentQuestion;
+      this.setState({ userId, languageTitle });
     }
   }
 
@@ -67,6 +77,7 @@ class TestPage extends Component {
 
   render() {
     const { currentQuestion, resultAnswered } = this.props;
+    const { languageTitle } = this.state;
     let desktopImage;
     let mobileImage;
     if (currentQuestion && currentQuestion.question.image) {
@@ -85,7 +96,7 @@ class TestPage extends Component {
           <>
             <div className={styles.container}>
               <TestControl
-                title={currentQuestion.languageTitle}
+                title={languageTitle}
                 current={currentQuestion.questionNumber}
                 finalResult={false}
                 length={currentQuestion.allQuestionsCount}
