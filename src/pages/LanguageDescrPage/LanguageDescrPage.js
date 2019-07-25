@@ -33,18 +33,20 @@ class LanguageDescrPage extends Component {
   };
 
   handleBtnStart = async e => {
-    const { setStartTime, fetchTest, currentLanguageId } = this.props;
+    const { setStartTime, fetchTest, currentLanguageId, history } = this.props;
     e.preventDefault();
     const tests = await fetchTest(currentLanguageId);
     if (tests) {
       this.addNotification(tests.message);
     } else {
       setStartTime(Date.now());
+      history.push('/test');
     }
   };
 
   render() {
     const {
+      languageInfo,
       languageInfo: {
         title,
         description,
@@ -55,32 +57,34 @@ class LanguageDescrPage extends Component {
         updatedAt,
       },
       loading,
-      error,
     } = this.props;
     return (
       <>
         <Header />
-        <section className={styles.languageDescrPageContainer}>
-          <StatisticBlock
-            logo={image}
-            questionCount={countQuestions}
-            questionPull={pullQuestions}
-            createdAt={createdAt}
-            updatedAt={updatedAt}
-            onClick={this.handleBtnBack}
-          />
-          <InformationBlock
-            title={title}
-            description={description}
-            onStart={this.handleBtnStart}
-            error={error}
-          />
-          {loading && (
+        {!languageInfo ||
+          (loading && (
             <div className={styles.loader}>
               <Loader type="Circles" color="#00BFFF" height="100" width="100" />
             </div>
-          )}
-        </section>
+          ))}
+        {languageInfo &&
+          (!loading && (
+            <section className={styles.languageDescrPageContainer}>
+              <StatisticBlock
+                logo={image}
+                questionCount={countQuestions}
+                questionPull={pullQuestions}
+                createdAt={createdAt}
+                updatedAt={updatedAt}
+                onClick={this.handleBtnBack}
+              />
+              <InformationBlock
+                title={title}
+                description={description}
+                onStart={this.handleBtnStart}
+              />
+            </section>
+          ))}
       </>
     );
   }
@@ -101,15 +105,12 @@ LanguageDescrPage.propTypes = {
   setStartTime: PropTypes.func.isRequired,
   currentLanguageId: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.objectOf(PropTypes.string),
   toastManager: PropTypes.shape({
     add: PropTypes.func,
     remove: PropTypes.func,
     toasts: PropTypes.array,
   }).isRequired,
-};
-LanguageDescrPage.defaultProps = {
-  error: null,
+  history: PropTypes.shape.isRequired,
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
