@@ -1,24 +1,16 @@
+/* eslint-disable */
 import axios from 'axios';
 import {
-  fetchCurrentQuestionStart,
-  fetchCurrentQuestionSuccess,
-  fetchCurrentQuestionError,
   fetchResultAnswerStart,
   fetchResultAnswerSuccess,
   fetchResultAnswerError,
   fetchNextQuestionSuccess,
+  fetchSkipTheQuestionError,
+  fetchSkipTheQuestionStart,
+  fetchSkipTheQuestionSuccess,
 } from './testPageActions';
 
 axios.defaults.baseURL = 'https://test.goit.co.ua/api';
-
-export const fetchCurrentQuestion = () => dispatch => {
-  dispatch(fetchCurrentQuestionStart());
-
-  axios
-    .get('/tests/5d246ffc75a8c204991c26e1')
-    .then(response => dispatch(fetchCurrentQuestionSuccess(response.data)))
-    .catch(error => dispatch(fetchCurrentQuestionError(error)));
-};
 
 export const fetchResultAnswer = (userID, userAnswer) => dispatch => {
   dispatch(fetchResultAnswerStart());
@@ -45,4 +37,23 @@ export const fetchResultAnswer = (userID, userAnswer) => dispatch => {
       dispatch(fetchNextQuestionSuccess(newNextQuestion));
     })
     .catch(error => dispatch(fetchResultAnswerError(error)));
+};
+
+export const fetchSkipTheQuestion = (userID, question) => dispatch => {
+  dispatch(fetchSkipTheQuestionStart());
+
+  axios
+    .post(`/answer/skip/${userID}`, question)
+    .then(response => {
+      const { questionNumber, allQuestionsCount } = response.data;
+      const question = response.data.question || response.data.nextQuestion;
+      const newNextQuestion = {
+        questionNumber,
+        allQuestionsCount,
+        question,
+      };
+
+      dispatch(fetchSkipTheQuestionSuccess(newNextQuestion));
+    })
+    .catch(error => dispatch(fetchSkipTheQuestionError(error)));
 };

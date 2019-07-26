@@ -6,7 +6,7 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
   <div className={styles.container}>
     <div className={styles.innerContainer}>
       <p className={styles.title}>Пояснения:</p>
-      <p className={styles.text}>{description}</p>
+      <p className={styles.text}>{description || 'Извини , без объяснения!'}</p>
       <button
         onClick={onClickNextQuestion}
         className={styles.button}
@@ -19,8 +19,12 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
 );
 
 TestExplanation.propTypes = {
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
   onClickNextQuestion: PropTypes.func.isRequired,
+};
+
+TestExplanation.defaultProps = {
+  description: 'Извини , без объяснения!',
 };
 
 export default TestExplanation;

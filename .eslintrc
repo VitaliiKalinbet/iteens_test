@@ -26,11 +26,12 @@
   },
   "rules": {
     "no-console": 1,
-    "no-underscore-dangle": [2, { "allow": [] }],
+    "no-underscore-dangle": [2, { "allow": ["{question_", "_id"] }],
     "linebreak-style": ["error", "unix"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-onchange": 0,
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "react/no-did-update-set-state": 0,
     "react/destructuring-assignment": [
       2,
       "always",
