@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
@@ -15,6 +13,7 @@ const TestAnswer = ({
   resultAnswer,
   onClickAnswer,
   onChangeUserAnswer,
+  onClickSkipQuestion,
 }) => (
   <>
     <div className={styles.container}>
@@ -76,7 +75,11 @@ const TestAnswer = ({
             >
               Ответить
             </button>
-            <button type="submit" className={styles.buttonSkip}>
+            <button
+              onClick={onClickSkipQuestion}
+              type="submit"
+              className={styles.buttonSkip}
+            >
               Пропустить
             </button>
           </div>
@@ -93,7 +96,11 @@ const TestAnswer = ({
           >
             Ответить
           </button>
-          <button type="submit" className={styles.buttonSkip}>
+          <button
+            onClick={onClickSkipQuestion}
+            type="submit"
+            className={styles.buttonSkip}
+          >
             Пропустить
           </button>
         </div>
@@ -115,6 +122,7 @@ TestAnswer.propTypes = {
   ]).isRequired,
   onClickAnswer: PropTypes.func.isRequired,
   onChangeUserAnswer: PropTypes.func.isRequired,
+  onClickSkipQuestion: PropTypes.func.isRequired,
 };
 
 TestAnswer.defaultProps = {};
