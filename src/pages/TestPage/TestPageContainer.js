@@ -13,7 +13,6 @@ const mapStateToProps = state => ({
   userId: TestPageSelectors.getUserId(state),
 });
 const mapDispatchToProps = {
-  fetchCurrentQuestion: TestPageOperations.fetchCurrentQuestion,
   fetchResultAnswer: TestPageOperations.fetchResultAnswer,
   onChangeAnswer: userAnswer =>
     dispatch(TestPageActions.changeUserAnswer(userAnswer)),
@@ -24,6 +23,8 @@ const mapDispatchToProps = {
     dispatch(TestPageActions.resetUserAnswer());
     dispatch(TestPageActions.resetNextQuestion());
   },
+  resetUserAnswer: () => dispatch(TestPageActions.resetUserAnswer()),
+  fetchSkipTheQuestion: TestPageOperations.fetchSkipTheQuestion,
 };
 
 export default connect(

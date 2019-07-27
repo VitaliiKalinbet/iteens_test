@@ -8,6 +8,8 @@ const currentQuestionReducer = (state = null, { type, payload }) => {
       return payload.test;
     case ActionTypeTestPage.REWRITE_CURRENTQUESTION:
       return payload.test;
+    case ActionTypeTestPage.FETCH_SKIP_QUESTION_SUCCESS:
+      return payload.test;
     default:
       return state;
   }

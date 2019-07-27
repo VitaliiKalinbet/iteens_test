@@ -58,9 +58,9 @@
   display: flex;
   flex-direction: column;
 }
-.label:not(:last-child) {
+/* .label:not(:last-child) {
   margin-bottom: 20px;
-}
+} */
 
 .input {
   margin-right: 12px;
@@ -103,7 +103,13 @@
   border: 1px solid #8b92ab;
   background-color: transparent;
 }
-
+.answerBox{
+  display: flex;
+  justify-content: flex-start;
+}
+.answerBox:not(:last-child) {
+  margin-bottom: 20px;
+}
 @media (min-width: 768px) {
   .container::after {
     content: '';
@@ -139,15 +145,16 @@
   }
   .inputWrapper {
     margin-bottom: 30px;
+    width: 370px;
   }
   .buttonConfirm {
     margin-right: 20px;
   }
 
   .labelCorrect:before {
-    width: 320px;
+    width: 370px;
   }
   .labelIncorrect:before {
-    width: 320px;
+    width: 370px;
   }
 }

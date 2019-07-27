@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
@@ -15,6 +13,7 @@ const TestAnswer = ({
   resultAnswer,
   onClickAnswer,
   onChangeUserAnswer,
+  onClickSkipQuestion,
 }) => (
   <>
     <div className={styles.container}>
@@ -40,21 +39,19 @@ const TestAnswer = ({
             }
 
             return (
-              <label
-                key={question._id}
-                htmlFor={question._id}
-                className={labelClassNames}
-              >
-                <input
-                  id={question._id}
-                  className={styles.input}
-                  name="answer"
-                  type="radio"
-                  data-number={question.answerNumber}
-                  onChange={onChangeUserAnswer}
-                />
-                {question.answerText}
-              </label>
+              <div key={question._id} className={styles.answerBox}>
+                <label htmlFor={question._id} className={labelClassNames}>
+                  <input
+                    id={question._id}
+                    className={styles.input}
+                    name="answer"
+                    type="radio"
+                    data-number={question.answerNumber}
+                    onChange={onChangeUserAnswer}
+                  />
+                </label>
+                <p dangerouslySetInnerHTML={{ __html: question.answerText }} />
+              </div>
             );
           })}
         </div>
@@ -76,7 +73,11 @@ const TestAnswer = ({
             >
               Ответить
             </button>
-            <button type="submit" className={styles.buttonSkip}>
+            <button
+              onClick={onClickSkipQuestion}
+              type="submit"
+              className={styles.buttonSkip}
+            >
               Пропустить
             </button>
           </div>
@@ -93,7 +94,11 @@ const TestAnswer = ({
           >
             Ответить
           </button>
-          <button type="submit" className={styles.buttonSkip}>
+          <button
+            onClick={onClickSkipQuestion}
+            type="submit"
+            className={styles.buttonSkip}
+          >
             Пропустить
           </button>
         </div>
@@ -115,6 +120,7 @@ TestAnswer.propTypes = {
   ]).isRequired,
   onClickAnswer: PropTypes.func.isRequired,
   onChangeUserAnswer: PropTypes.func.isRequired,
+  onClickSkipQuestion: PropTypes.func.isRequired,
 };
 
 TestAnswer.defaultProps = {};
