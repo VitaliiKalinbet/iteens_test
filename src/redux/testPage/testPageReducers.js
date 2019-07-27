@@ -55,7 +55,7 @@ export const resultAnsweredReducer = (state = false, { type, payload }) => {
   }
 };
 
-export const nextQuestionAnswer = (state = {}, { type, payload }) => {
+export const nextQuestionAnswerReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_NEXT_QUESTION_SUCCESS:
       return payload.nextQuestion;
@@ -63,6 +63,15 @@ export const nextQuestionAnswer = (state = {}, { type, payload }) => {
       return payload.reset;
     case ActionType.FINISH_TEST_SUCCESS:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const finalResultReducer = (state = null, { type, payload }) => {
+  switch (type) {
+    case ActionType.FETCH_FINAL_RESULT:
+      return payload.finalResult;
     default:
       return state;
   }

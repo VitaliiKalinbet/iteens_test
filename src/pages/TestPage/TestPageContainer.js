@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
   currentQuestion: TestPageSelectors.getCurrentQuestion(state),
   resultAnswered: TestPageSelectors.getResultAnswer(state),
   userId: TestPageSelectors.getUserId(state),
+  finalResult: TestPageSelectors.finalResult(state),
 });
 const mapDispatchToProps = {
   fetchResultAnswer: TestPageOperations.fetchResultAnswer,

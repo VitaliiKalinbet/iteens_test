@@ -12,6 +12,7 @@ export const ActionType = {
   FETCH_SKIP_QUESTION_START: 'FETCH_SKIP_QUESTION_START',
   FETCH_SKIP_QUESTION_SUCCESS: 'FETCH_SKIP_QUESTION_SUCCESS',
   FETCH_SKIP_QUESTION_ERROR: 'FETCH_SKIP_ERROR',
+  FETCH_FINAL_RESULT: 'FETCH_FINAL_RESULT',
   FINISH_TEST_START: 'FINISH_TEST_START',
   FINISH_TEST_SUCCESS: 'FINISH_TEST_SUCCESS',
   FINISH_TEST_ERROR: 'FINISH_TEST_ERROR',
@@ -122,5 +123,12 @@ export const fetchSkipTheQuestionError = error => ({
   type: ActionType.FETCH_SKIP_QUESTION_ERROR,
   payload: {
     error,
+  },
+});
+
+export const fetchFinalResult = finalResult => ({
+  type: ActionType.FETCH_FINAL_RESULT,
+  payload: {
+    finalResult,
   },
 });
