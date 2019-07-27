@@ -6,7 +6,10 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
   <div className={styles.container}>
     <div className={styles.innerContainer}>
       <p className={styles.title}>Пояснения:</p>
-      <p className={styles.text}>{description || 'Извини , без объяснения!'}</p>
+      <p
+        className={styles.text}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
       <button
         onClick={onClickNextQuestion}
         className={styles.button}

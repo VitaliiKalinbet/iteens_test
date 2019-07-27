@@ -39,21 +39,19 @@ const TestAnswer = ({
             }
 
             return (
-              <label
-                key={question._id}
-                htmlFor={question._id}
-                className={labelClassNames}
-              >
-                <input
-                  id={question._id}
-                  className={styles.input}
-                  name="answer"
-                  type="radio"
-                  data-number={question.answerNumber}
-                  onChange={onChangeUserAnswer}
-                />
-                {question.answerText}
-              </label>
+              <div key={question._id} className={styles.answerBox}>
+                <label htmlFor={question._id} className={labelClassNames}>
+                  <input
+                    id={question._id}
+                    className={styles.input}
+                    name="answer"
+                    type="radio"
+                    data-number={question.answerNumber}
+                    onChange={onChangeUserAnswer}
+                  />
+                </label>
+                <p dangerouslySetInnerHTML={{ __html: question.answerText }} />
+              </div>
             );
           })}
         </div>
