@@ -43,7 +43,7 @@ const ResultDiagramm = ({
           lineWidth={15}
         />
         <span className={style.digrammPercentage}>
-          {rightAnsweredInPercentage}%
+          {Math.round(rightAnsweredInPercentage)}%
         </span>
       </div>
       <p className={style.wishes}>{wishes(rightAnsweredInPercentage)}</p>
