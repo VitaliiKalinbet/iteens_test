@@ -53,12 +53,12 @@
 }
 @media(min-width: 1280px) {
   .card {
-    height: 30vh;
+    height: unset;
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding: 4vh 0;
   }
   .logo {
-    margin: 0 auto 10% auto;
+    margin: 0 auto 3vh auto;
   }
 }
