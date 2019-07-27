@@ -95,6 +95,7 @@ class TestPage extends Component {
     const { userId } = this.state;
     const questionSkip = { questionNumber, questionId };
     this.props.fetchSkipTheQuestion(userId, questionSkip);
+    document.documentElement.scrollTop(-3);
     this.props.resetUserAnswer();
   };
 

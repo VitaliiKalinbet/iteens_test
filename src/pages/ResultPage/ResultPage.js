@@ -20,7 +20,7 @@ class ResultPage extends Component {
     const { startTime, endTime } = this.props;
     const delta = endTime - startTime;
     const day = moment(new Date(delta));
-    return day.format('mm');
+    return day.format('m');
   }
 
   render() {
