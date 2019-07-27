@@ -35,6 +35,8 @@ export const userAnswerReducer = (state = {}, { type, payload }) => {
       return payload.questionNumber;
     case ActionType.RESET_USER_ANSWER:
       return payload.reset;
+    case ActionType.FINISH_TEST_SUCCESS:
+      return {};
     default:
       return state;
   }
@@ -46,7 +48,8 @@ export const resultAnsweredReducer = (state = false, { type, payload }) => {
       return payload.resultAnswer;
     case ActionType.RESET_RESULT_ANSWER:
       return payload.reset;
-
+    case ActionType.FINISH_TEST_SUCCESS:
+      return false;
     default:
       return state;
   }
@@ -58,6 +61,8 @@ export const nextQuestionAnswer = (state = {}, { type, payload }) => {
       return payload.nextQuestion;
     case ActionType.RESET_NEXT_QUESTION:
       return payload.reset;
+    case ActionType.FINISH_TEST_SUCCESS:
+      return {};
     default:
       return state;
   }

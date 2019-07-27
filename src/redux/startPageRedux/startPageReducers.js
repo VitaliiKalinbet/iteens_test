@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { ActionType } from './startPageActions';
+import { ActionType as TestType } from '../testPage/testPageActions';
 
 const languageReducer = (state = [], { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_LANGUAGES_SUCCESS:
       return payload;
-
+    case TestType.FINISH_TEST_SUCCESS:
+      return [];
     default:
       return state;
   }
@@ -20,6 +22,8 @@ const loadingReducer = (state = false, { type }) => {
     case ActionType.FETCH_LANGUAGES_ERROR:
       return false;
 
+    case TestType.FINISH_TEST_SUCCESS:
+      return false;
     default:
       return state;
   }
@@ -34,6 +38,8 @@ const errorReducer = (state = null, { type, payload }) => {
     case ActionType.FETCH_LANGUAGES_ERROR:
       return payload;
 
+    case TestType.FINISH_TEST_SUCCESS:
+      return null;
     default:
       return state;
   }
