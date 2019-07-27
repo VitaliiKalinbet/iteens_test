@@ -4,12 +4,12 @@ import classNames from 'classnames/bind';
 import styles from './TestAnswer.module.css';
 import happyCat1 from '../../assets/img/cat/happyCat1.jpg';
 import happyCat2 from '../../assets/img/cat/happyCat2.png';
+import happyCat3 from '../../assets/img/cat/happyCat3.png';
 import pensiveСat1 from '../../assets/img/cat/pensiveСat1.jpg';
 import pensiveСat2 from '../../assets/img/cat/pensiveCat2.png';
-import pensiveСat3 from '../../assets/img/cat/pensiveCat3.png';
 
-const happyCatArray = [happyCat1, happyCat2];
-const pensiveCatArray = [pensiveСat1, pensiveСat2, pensiveСat3];
+const happyCatArray = [happyCat1, happyCat2, happyCat3];
+const pensiveCatArray = [pensiveСat1, pensiveСat2];
 
 const getRandomInt = max => Math.floor(Math.random() * max);
 
@@ -77,13 +77,13 @@ const TestAnswer = ({
             <img
               className={styles.img}
               alt="cat"
-              src={happyCatArray[getRandomInt(2)]}
+              src={happyCatArray[getRandomInt(3)]}
             />
           ) : (
             <img
               className={styles.img}
               alt="cat"
-              src={pensiveCatArray[getRandomInt(3)]}
+              src={pensiveCatArray[getRandomInt(2)]}
             />
           ))}
       </div>
