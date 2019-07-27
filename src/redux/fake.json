@@ -1,0 +1,297 @@
+{
+  "finalResult": true,
+  "allQuestionsCount": 5,
+  "result": {
+    "rightAnswer": 3,
+    "userAnswer": 1,
+    "questionExposition": "Исходное состояние списка: (0:\"str\"; 1:\"str2\"; 2:\"str3\"), size() = 3<br>i = 0 → удаляем элемент \"str1\" → (0:\"str2\"; 1:\"str3\"), size() = 2<br>i = 1 → удаляем элемент \"str3\" → (0:\"str2\"), size() = 1<br>i = 2 → конец цикла, т.к. i > size()<br>Ответ: size() = 1",
+    "answerCorrectly": false
+  },
+  "userRightAnswered": 0,
+  "userRightAnsweredInPercentage": 0,
+  "languageTitle": "Java",
+  "questions": [
+    {
+      "questionId": "5d3c02568d1faf4b096816c5",
+      "questionText": "Для чего можно использовать Java?",
+      "code": {
+        "type": {}
+      },
+      "answers": [
+        {
+          "_id": "5d3a06d76c284d7cf0fd7fff",
+          "answerNumber": 1,
+          "answerText": "Для создания сайтов"
+        },
+        {
+          "_id": "5d3a06d76c284d7cf0fd7ffe",
+          "answerNumber": 2,
+          "answerText": "Для создания программ"
+        },
+        {
+          "_id": "5d3a06d76c284d7cf0fd7ffd",
+          "answerNumber": 3,
+          "answerText": "Для создания игр"
+        },
+        {
+          "_id": "5d3a06d76c284d7cf0fd7ffc",
+          "answerNumber": 4,
+          "answerText": "Только для создания игр и программ"
+        },
+        {
+          "_id": "5d3a06d76c284d7cf0fd7ffb",
+          "answerNumber": 5,
+          "answerText": "Для всего перечисленного и не только"
+        },
+        {
+          "_id": "5d3a06d76c284d7cf0fd7ffa",
+          "answerNumber": 6,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 5
+    },
+    {
+      "questionId": "5d3c02568d1faf4b096816cc",
+      "questionText": "Сколько раз выполнится следующий цикл?",
+      "code": {
+        "type": {}
+      },
+      "image": "Java-1.png",
+      "imageMobile": "Java-1-mob.png",
+      "answers": [
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d7c",
+          "answerNumber": 1,
+          "answerText": "Программа не скомпилируется"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d7b",
+          "answerNumber": 2,
+          "answerText": "0"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d7a",
+          "answerNumber": 3,
+          "answerText": "1"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d79",
+          "answerNumber": 4,
+          "answerText": "2"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d78",
+          "answerNumber": 5,
+          "answerText": "3"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d77",
+          "answerNumber": 6,
+          "answerText": "Бесконечное количество раз"
+        },
+        {
+          "_id": "5d34bffc4dd0ac2cfe2a4d76",
+          "answerNumber": 7,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "explanation": "Цикл выполнится один раз. При первой же итерации значение переменной i умножается на 3 и -2, то есть оно будет равно -30. Так как цикл продолжается, пока значение переменной i больше 0, то после первой итерации произойдет выход из цикла.",
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 3
+    },
+    {
+      "questionId": "5d3c02568d1faf4b096816d4",
+      "questionText": "Какой результат выполнения данного кода?",
+      "code": {
+        "type": {}
+      },
+      "image": "Java-24.png",
+      "imageMobile": "Java-24-mob.png",
+      "answers": [
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd5",
+          "answerNumber": 1,
+          "answerText": "4"
+        },
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd4",
+          "answerNumber": 2,
+          "answerText": "5"
+        },
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd3",
+          "answerNumber": 3,
+          "answerText": "8"
+        },
+
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd2",
+          "answerNumber": 4,
+          "answerText": "9"
+        },
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd1",
+          "answerNumber": 5,
+          "answerText": "Ошибка компиляции"
+        },
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fd0",
+          "answerNumber": 6,
+          "answerText": "Ошибка выполнения"
+        },
+        {
+          "_id": "5d39fe4d6c284d7cf0fd7fcf",
+          "answerNumber": 7,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "explanation": "Сначала происходит создание нового объекта - new Starter() - и сразу же вызывается его метод - makeItSo().",
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 4
+    },
+    {
+      "questionId": "5d3c02568d1faf4b096816dc",
+      "questionText": "Выберите из приведенных единственный верный вариант вывода приложения при запуске его командой \"java Test 1 two 3\".",
+      "code": {
+        "type": {}
+      },
+      "image": "Java-18.png",
+      "imageMobile": "Java-18-mob.png",
+      "answers": [
+        {
+          "_id": "5d39f060c7de0f78024cf07f",
+          "answerNumber": 1,
+          "answerText": "1"
+        },
+        {
+          "_id": "5d39f060c7de0f78024cf07e",
+          "answerNumber": 2,
+          "answerText": "two"
+        },
+        {
+          "_id": "5d39f060c7de0f78024cf07d",
+          "answerNumber": 3,
+          "answerText": "Будет выведено NumberFormatException"
+        },
+        {
+          "_id": "5d39f060c7de0f78024cf07c",
+          "answerNumber": 3,
+          "answerText": "Будет выведено ArrayIndexOutOfBoundsException"
+        },
+        {
+          "_id": "5d39f060c7de0f78024cf07b",
+          "answerNumber": 4,
+          "answerText": "Код не откомпилируется"
+        },
+        {
+          "_id": "5d39f060c7de0f78024cf07a",
+          "answerNumber": 5,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "explanation": "В метод main передаётся массив строк, содержащий параметры, указанные при запуске приложения из командной строки: <br>args[0] → \"1\" <br>args[1] → \"Two\" <br>args[2] → \"3\" <br>При попытке выполнить команду Integer.parseInt(\"Two\") будет выброшено NumberFormatException. <br>Аргументы можно задавать и при запуске приложения из IDE. Например, в Netbeans они указываются в \"Свойства проекта\" – \"Выполнение\" – \"Аргументы\".",
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 3
+    },
+    {
+      "questionId": "5d3c02568d1faf4b096816e3",
+      "questionText": "Зачем нужна аннотация @Override когда вы переопределяете (или реализовываете) методы?",
+      "code": {
+        "type": {}
+      },
+      "answers": [
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fe4",
+          "answerNumber": 1,
+          "answerText": "Аннотация является deprecated (и соответственно не рекомендуется к использованию)"
+        },
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fe3",
+          "answerNumber": 2,
+          "answerText": "Чтобы своевременно обнаружить изменение в сигнатуре метода у класса-предка (или интерфейса)."
+        },
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fe2",
+          "answerNumber": 3,
+          "answerText": "Чтобы пометить методы, которые обязательно должны быть переопределены в классах-наследниках."
+        },
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fe1",
+          "answerNumber": 4,
+          "answerText": "Чтобы пометить методы, которые обязательно должны быть перегружены в классах-наследниках."
+        },
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fe0",
+          "answerNumber": 5,
+          "answerText": "Чтобы иметь возможность через Reflection получать дополнительную информацию о методах во время выполнения программы."
+        },
+        {
+          "_id": "5d3a033d6c284d7cf0fd7fdf",
+          "answerNumber": 6,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "explanation": "Предопределённая аннотация @Override используется для выявления логических ошибок на этапе компиляции. Этой аннотацией желательно помечать каждый метод, который будет перекрывать метод из суперкласса или реализовывать метод из интерфейса. Если в суперклассе или интерфейсе нет метода с такой же сигнатурой, то возникнет ошибка компиляции. Это позволяет легко выявлять ситуации, когда в суперклассе или интерфейсе была удалена или изменена сигнатура перекрываемого метода.",
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 2
+    },
+    {
+      "questionId": "5d3c02568d1faf4b096816ea",
+      "questionText": "Что произойдет при попытке скомпилировать и запустить данный код?",
+      "code": {
+        "type": {}
+      },
+      "image": "Java-22.png",
+      "imageMobile": "Java-22-mob.png",
+      "answers": [
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc7",
+          "answerNumber": 1,
+          "answerText": "Ошибка компиляции"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc6",
+          "answerNumber": 2,
+          "answerText": "Будет выброшено исключение IndexOutOfBoundsException"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc5",
+          "answerNumber": 3,
+          "answerText": "Код напечатает 0"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc4",
+          "answerNumber": 4,
+          "answerText": "Код напечатает 1"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc3",
+          "answerNumber": 5,
+          "answerText": "Код напечатает 2"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc2",
+          "answerNumber": 6,
+          "answerText": "Код напечатает 3"
+        },
+        {
+          "_id": "5d39fc2b6c284d7cf0fd7fc1",
+          "answerNumber": 7,
+          "answerText": "Я не знаю"
+        }
+      ],
+      "explanation": "Исходное состояние списка: (0:\"str\"; 1:\"str2\"; 2:\"str3\"), size() = 3<br>i = 0 → удаляем элемент \"str1\" → (0:\"str2\"; 1:\"str3\"), size() = 2<br>i = 1 → удаляем элемент \"str3\" → (0:\"str2\"), size() = 1<br>i = 2 → конец цикла, т.к. i > size()<br>Ответ: size() = 1",
+      "userAnswerCorrectly": false,
+      "userAnswer": 1,
+      "rightAnswer": 3
+    }
+  ],
+  "timeStartAnswering": "2019-07-27T07:50:47.043Z"
+}

@@ -40,20 +40,14 @@
 
 @media (min-width: 768px) {
   .container {
-    width: 730px;
-    background-color: #f2f2f2;
     width: 734px;
     position: relative;
-    padding: 86px 0 76px 90px;
-    margin-top: -60px;
   }
 }
 
 @media (min-width: 1200px) {
   .container {
     width: 100%;
-    margin-top: -200px;
-    padding: 230px 0 230px 0;
   }
 
   .innerContainer {
