@@ -6,15 +6,16 @@ import {
 } from './startPageActions';
 
 // eslint-disable-next-line
-export const fetchLanguages = () => dispatch => {
-  dispatch(fetchLanguageStart());
-
-  axios
-    .get('https://test.goit.co.ua/api/tests')
-    .then(response => {
+export const fetchLanguages = () => {
+  return async dispatch => {
+    try {
+      dispatch(fetchLanguageStart());
+      const response = await axios.get('https://test.goit.co.ua/api/tests');
       dispatch(fetchLanguageSuccess(response.data.languages));
-    })
-    .catch(error => {
+      return null;
+    } catch (error) {
       dispatch(fetchLanguageError(error));
-    });
+      return error;
+    }
+  };
 };
