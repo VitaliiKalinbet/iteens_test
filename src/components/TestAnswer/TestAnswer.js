@@ -7,6 +7,7 @@ import pensiveСat from '../../assets/img/cat/pensiveСat.jpg';
 
 const cx = classNames.bind(styles);
 let labelClassNames;
+let disabled;
 
 const TestAnswer = ({
   questions,
@@ -32,26 +33,34 @@ const TestAnswer = ({
                     labelCorrect: currentIndex === resultAnswer.rightAnswer,
                     labelIncorrect: currentIndex === resultAnswer.userAnswer,
                   });
+              disabled = true;
             } else {
               labelClassNames = cx({
                 label: true,
               });
+              disabled = false;
             }
 
             return (
-              <div key={question._id} className={styles.answerBox}>
-                <label htmlFor={question._id} className={labelClassNames}>
-                  <input
-                    id={question._id}
-                    className={styles.input}
-                    name="answer"
-                    type="radio"
-                    data-number={question.answerNumber}
-                    onChange={onChangeUserAnswer}
-                  />
-                </label>
-                <p dangerouslySetInnerHTML={{ __html: question.answerText }} />
-              </div>
+              <label
+                key={question._id}
+                htmlFor={question._id}
+                className={labelClassNames}
+              >
+                <input
+                  disabled={disabled}
+                  id={question._id}
+                  className={styles.input}
+                  name="answer"
+                  type="radio"
+                  data-number={question.answerNumber}
+                  onChange={onChangeUserAnswer}
+                />
+                <span
+                  dangerouslySetInnerHTML={{ __html: question.answerText }}
+                  className={styles.questionText}
+                />
+              </label>
             );
           })}
         </div>

@@ -6,17 +6,20 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
   <div className={styles.container}>
     <div className={styles.innerContainer}>
       <p className={styles.title}>Пояснения:</p>
+
       <p
         className={styles.text}
         dangerouslySetInnerHTML={{ __html: description }}
       />
-      <button
-        onClick={onClickNextQuestion}
-        className={styles.button}
-        type="submit"
-      >
-        Ок, дальше
-      </button>
+      {onClickNextQuestion && (
+        <button
+          onClick={onClickNextQuestion}
+          className={styles.button}
+          type="submit"
+        >
+          Ок, дальше
+        </button>
+      )}
     </div>
   </div>
 );

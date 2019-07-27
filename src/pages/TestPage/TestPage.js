@@ -62,8 +62,20 @@ class TestPage extends Component {
   };
 
   onClickNextQuestion = () => {
-    this.props.rewriteCurrentQuestion();
-    this.props.resetFields();
+    const {
+      rewriteCurrentQuestion,
+      resetFields,
+      history,
+      finalResult,
+    } = this.props;
+
+    if (finalResult) {
+      history.push('/result');
+      return;
+    }
+
+    rewriteCurrentQuestion();
+    resetFields();
   };
 
   onClickSkipQuestion = () => {
@@ -161,6 +173,11 @@ TestPage.propTypes = {
     userId: PropTypes.string,
   }),
   userId: PropTypes.string.isRequired,
+  finalResult: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
+    .isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 TestPage.defaultProps = {
