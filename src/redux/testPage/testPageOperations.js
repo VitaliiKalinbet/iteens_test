@@ -8,6 +8,7 @@ import {
   fetchSkipTheQuestionError,
   fetchSkipTheQuestionStart,
   fetchSkipTheQuestionSuccess,
+  fetchFinalResult,
 } from './testPageActions';
 
 axios.defaults.baseURL = 'https://test.goit.co.ua/api';
@@ -18,23 +19,29 @@ export const fetchResultAnswer = (userID, userAnswer) => dispatch => {
   axios
     .post(`/answer/${userID}`, userAnswer)
     .then(response => {
-      const {
-        userId,
-        languageTitle,
-        questionNumber,
-        allQuestionsCount,
-        nextQuestion,
-      } = response.data;
+      console.log('response.data', response.data);
+      if (!response.data.finalResult) {
+        const {
+          userId,
+          languageTitle,
+          questionNumber,
+          allQuestionsCount,
+          nextQuestion,
+        } = response.data;
 
-      const newNextQuestion = {
-        userId,
-        languageTitle,
-        questionNumber,
-        allQuestionsCount,
-        question: nextQuestion,
-      };
+        const newNextQuestion = {
+          userId,
+          languageTitle,
+          questionNumber,
+          allQuestionsCount,
+          question: nextQuestion,
+        };
+        dispatch(fetchResultAnswerSuccess(response.data.result));
+        dispatch(fetchNextQuestionSuccess(newNextQuestion));
+        return;
+      }
       dispatch(fetchResultAnswerSuccess(response.data.result));
-      dispatch(fetchNextQuestionSuccess(newNextQuestion));
+      dispatch(fetchFinalResult(response.data));
     })
     .catch(error => dispatch(fetchResultAnswerError(error)));
 };
@@ -45,15 +52,20 @@ export const fetchSkipTheQuestion = (userID, question) => dispatch => {
   axios
     .post(`/answer/skip/${userID}`, question)
     .then(response => {
-      const { questionNumber, allQuestionsCount } = response.data;
-      const question = response.data.question || response.data.nextQuestion;
-      const newNextQuestion = {
-        questionNumber,
-        allQuestionsCount,
-        question,
-      };
+      console.log('response.data', response.data);
+      if (!response.data.finalResult) {
+        const { questionNumber, allQuestionsCount } = response.data;
+        const question = response.data.question || response.data.nextQuestion;
+        const newNextQuestion = {
+          questionNumber,
+          allQuestionsCount,
+          question,
+        };
 
-      dispatch(fetchSkipTheQuestionSuccess(newNextQuestion));
+        return dispatch(fetchSkipTheQuestionSuccess(newNextQuestion));
+      }
+
+      dispatch(fetchFinalResult(response.data));
     })
     .catch(error => dispatch(fetchSkipTheQuestionError(error)));
 };

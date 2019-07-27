@@ -4,3 +4,5 @@ export const getCurrentQuestion = state =>
 export const getResultAnswer = state => state.resultAnswered;
 
 export const getUserId = state => state.userId;
+
+export const finalResult = state => state.finalResult;
