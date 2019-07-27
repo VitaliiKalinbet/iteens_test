@@ -24,6 +24,7 @@
 }
 .btn {
   padding: 5px 16px !important;
+  max-width: 84px !important;
 }
 @media screen and (min-width: 580px) {
   .orderQuestion {
@@ -35,5 +36,6 @@
   }
   .btn {
     order: 1;
+    max-width: 175px !important;
   }
 }
