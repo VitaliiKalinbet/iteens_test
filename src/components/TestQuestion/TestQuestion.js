@@ -11,6 +11,9 @@ const TestQuestion = ({ question }) => {
   );
 };
 TestQuestion.propTypes = {
-  question: PropTypes.string.isRequired,
+  question: PropTypes.string,
+};
+TestQuestion.defaultProps = {
+  question: '',
 };
 export default TestQuestion;
