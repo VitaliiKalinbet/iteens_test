@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './TestExplanation.module.css';
 
 const TestExplanation = ({ description, onClickNextQuestion }) => (
   <div className={styles.container}>
     <div className={styles.innerContainer}>
-      <p className={styles.title}>Пояснения:</p>
+      {description && (
+        <Fragment>
+          <p className={styles.title}>Пояснения:</p>
 
-      <p
-        className={styles.text}
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+          <p
+            className={styles.text}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </Fragment>
+      )}
       {onClickNextQuestion && (
         <button
           onClick={onClickNextQuestion}
@@ -28,9 +32,8 @@ TestExplanation.propTypes = {
   description: PropTypes.string,
   onClickNextQuestion: PropTypes.func.isRequired,
 };
-
 TestExplanation.defaultProps = {
-  description: 'Извини , без объяснения!',
+  description: null,
 };
 
 export default TestExplanation;

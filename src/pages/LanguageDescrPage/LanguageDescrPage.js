@@ -110,7 +110,7 @@ LanguageDescrPage.propTypes = {
     remove: PropTypes.func,
     toasts: PropTypes.array,
   }).isRequired,
-  history: PropTypes.shape.isRequired,
+  history: PropTypes.shape().isRequired,
 };
 const mapStateToProps = state => ({
   languageInfo: languageDescrPageSelectors.getLanguageById(state),
