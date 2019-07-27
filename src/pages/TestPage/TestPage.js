@@ -104,39 +104,44 @@ class TestPage extends Component {
             <Loader type="Puff" color="#00BFFF" height="100" width="100" />
           </div>
         )}
+
         {currentQuestion && (
           <>
-            <div className={styles.container}>
-              <TestControl
-                title={languageTitle}
-                current={currentQuestion.questionNumber}
-                finalResult={false}
-                length={currentQuestion.allQuestionsCount}
-              />
-              <TestQuestion question={currentQuestion.question.questionText} />
-
-              {currentQuestion.question.image && (
-                <NewTestImage
-                  desktopImage={desktopImage}
-                  mobileImage={mobileImage}
+            <div className={styles.testPageContainer}>
+              <div className={styles.container}>
+                <TestControl
+                  title={languageTitle}
+                  current={currentQuestion.questionNumber}
+                  finalResult={false}
+                  length={currentQuestion.allQuestionsCount}
                 />
-              )}
-              <TestAnswer
-                questions={currentQuestion.question.answers}
-                onChangeUserAnswer={this.onChangeUserAnswer}
-                onClickAnswer={this.onClickAnswer}
-                onClickSkipQuestion={this.onClickSkipQuestion}
-                resultAnswer={resultAnswered}
-              />
+                <TestQuestion
+                  question={currentQuestion.question.questionText}
+                />
+
+                {currentQuestion.question.image && (
+                  <NewTestImage
+                    desktopImage={desktopImage}
+                    mobileImage={mobileImage}
+                  />
+                )}
+                <TestAnswer
+                  questions={currentQuestion.question.answers}
+                  onChangeUserAnswer={this.onChangeUserAnswer}
+                  onClickAnswer={this.onClickAnswer}
+                  onClickSkipQuestion={this.onClickSkipQuestion}
+                  resultAnswer={resultAnswered}
+                />
+                {resultAnswered && (
+                  <TestExplanation
+                    onClickNextQuestion={this.onClickNextQuestion}
+                    description={resultAnswered.explanation}
+                  />
+                )}
+              </div>
+              <div className={styles.background} />
             </div>
           </>
-        )}
-
-        {resultAnswered && (
-          <TestExplanation
-            onClickNextQuestion={this.onClickNextQuestion}
-            description={resultAnswered.explanation}
-          />
         )}
       </>
     );

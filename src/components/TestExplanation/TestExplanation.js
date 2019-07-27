@@ -30,9 +30,10 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
 
 TestExplanation.propTypes = {
   description: PropTypes.string,
-  onClickNextQuestion: PropTypes.func.isRequired,
+  onClickNextQuestion: PropTypes.func,
 };
 TestExplanation.defaultProps = {
+  onClickNextQuestion: () => null,
   description: null,
 };
 
