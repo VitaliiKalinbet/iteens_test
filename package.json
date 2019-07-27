@@ -8,10 +8,13 @@
   "dependencies": {
     "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "highlight.js": "^9.15.8",
     "moment": "^2.24.0",
+    "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-fast-highlight": "^2.2.2",
     "react-hot-loader": "^4.12.5",
     "react-loader-spinner": "^2.3.0",
     "react-minimal-pie-chart": "^4.2.0",

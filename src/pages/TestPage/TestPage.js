@@ -9,6 +9,7 @@ import TestQuestion from '../../components/TestQuestion/TestQuestion';
 import TestControl from '../../components/TestControl/TestControl';
 import NewTestImage from '../../components/NewTestImage/NewTestImage';
 import styles from './TestPage.module.css';
+import TestImage from '../../components/TestImage/TestImage';
 
 class TestPage extends Component {
   state = {
@@ -102,13 +103,16 @@ class TestPage extends Component {
                 length={currentQuestion.allQuestionsCount}
               />
               <TestQuestion question={currentQuestion.question.questionText} />
-
-              {currentQuestion.question.image && (
+              <TestImage
+                language="java"
+                codeString="class Program {static void Main(string[] args){var a=null;a=10;Console.WriteLine(a);Console.ReadLine();}}"
+              />
+              {/* {currentQuestion.question.image && (
                 <NewTestImage
                   desktopImage={desktopImage}
                   mobileImage={mobileImage}
                 />
-              )}
+              )} */}
               <TestAnswer
                 questions={currentQuestion.question.answers}
                 onChangeUserAnswer={this.onChangeUserAnswer}
