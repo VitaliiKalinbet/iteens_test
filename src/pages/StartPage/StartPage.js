@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Media from 'react-media';
 import Loader from 'react-loader-spinner';
 import Nav from '../../components/Header/Header';
 import style from './StartPage.module.css';
@@ -21,12 +22,20 @@ class StartPage extends Component {
         <section className={style.section}>
           <div className={style.sectionAbout}>
             <div className={style.sectionText}>
-              <blockquote className={style.blockquote}>
-                <span className={style.lduo}>&ldquo;</span>
-                <br />Я не провалил тест, я просто нашел 100 способов сделать
-                его неправильно
-              </blockquote>
-              <p className={style.autor}>Бенджамин Франклин</p>
+              <Media query={{ minWidth: 768 }}>
+                {matches =>
+                  matches && (
+                    <Fragment>
+                      <blockquote className={style.blockquote}>
+                        <span className={style.lduo}>&ldquo;</span>
+                        <br />Я не провалил тест, я просто нашел 100 способов
+                        сделать его неправильно
+                      </blockquote>
+                      <p className={style.autor}>Бенджамин Франклин</p>
+                    </Fragment>
+                  )
+                }
+              </Media>
               <p className={style.organization}>
                 [ Онлайн тесты для студентов{' '}
                 <a
