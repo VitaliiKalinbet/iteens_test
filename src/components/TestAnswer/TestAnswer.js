@@ -7,6 +7,7 @@ import pensiveСat from '../../assets/img/cat/pensiveСat.jpg';
 
 const cx = classNames.bind(styles);
 let labelClassNames;
+let disabled;
 
 const TestAnswer = ({
   questions,
@@ -32,10 +33,12 @@ const TestAnswer = ({
                     labelCorrect: currentIndex === resultAnswer.rightAnswer,
                     labelIncorrect: currentIndex === resultAnswer.userAnswer,
                   });
+              disabled = true;
             } else {
               labelClassNames = cx({
                 label: true,
               });
+              disabled = false;
             }
 
             return (
@@ -43,9 +46,9 @@ const TestAnswer = ({
                 key={question._id}
                 htmlFor={question._id}
                 className={labelClassNames}
-                y
               >
                 <input
+                  disabled={disabled}
                   id={question._id}
                   className={styles.input}
                   name="answer"
