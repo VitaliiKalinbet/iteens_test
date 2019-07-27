@@ -7,7 +7,7 @@
 .languageDescrPageContainer{
     text-align: center;
     margin: 0 auto;
-    width: 17.5rem;
+    width: 20rem;
     display: flex;
     flex-flow: column;
 }

@@ -1,7 +1,6 @@
 .secondBlock{
     margin: 0 auto;
-    width: 15.75rem;
-    margin-top: 3.5rem;
+    margin-top: 1rem;
 }
 .secondBlockTitle{
     color: #2e3038;
@@ -13,7 +12,6 @@
     margin-bottom: 2.31rem;
 }
 .secondBlockDescription{
-    margin-left: 1.25rem;
     color: #2e3038;
     text-align: justify;
     font-family: 'Open Sans';
@@ -23,8 +21,8 @@
     line-height: 1.65rem;
 }
 .btnStartTest{
-    margin-top: 2.375rem;
-    margin-bottom: 5.325rem;
+    margin-top: 1.375rem;
+    margin-bottom: 2.375rem;
     cursor: pointer;
     border: 0;
     background-color: #fc842c;
@@ -41,6 +39,7 @@
 @media screen and (min-width: 768px) {
     .secondBlock{
         width: 36.0625rem;
+        margin-top: 3.5rem;
     }
     .secondBlockDescription{
         margin: 0;
@@ -55,8 +54,8 @@
     .secondBlockTitle{
         margin-bottom: 1.8rem;
     }
-    .btnStartTest{
+    /* .btnStartTest{
         margin-top: 2rem;
         margin-bottom: 0;
-    }
+    } */
 }

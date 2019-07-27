@@ -122,7 +122,8 @@
 
   .img {
     margin-top: 0px;
-    margin-left: 30px;
+    width: 180px;
+    height: 180px;
   }
   .wrapperImgInput {
     display: flex;
@@ -137,7 +138,7 @@
   }
   .container {
     width: 700px;
-    padding: 30px 100px 30px 115px;
+    padding: 30px 30px 30px 115px;
   }
   .buttonContainer {
     width: 100%;
@@ -150,9 +151,9 @@
   }
 
   .labelCorrect:before {
-    width: 370px;
+    width: 420px;
   }
   .labelIncorrect:before {
-    width: 370px;
+    width: 420px;
   }
 }
