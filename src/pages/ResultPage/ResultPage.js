@@ -50,12 +50,15 @@ class ResultPage extends Component {
 
 ResultPage.propTypes = {
   startTime: PropTypes.number.isRequired,
-  endTime: PropTypes.number.isRequired,
+  endTime: PropTypes.number,
   setEndTime: PropTypes.func.isRequired,
   allQuestionsCount: PropTypes.number.isRequired,
   languageTitle: PropTypes.string.isRequired,
   rightAnswered: PropTypes.number.isRequired,
   rightAnsweredInPercentage: PropTypes.number.isRequired,
+};
+ResultPage.defaultProps = {
+  endTime: null,
 };
 const mapDispatchToProps = {
   setEndTime: actions.endTime,
