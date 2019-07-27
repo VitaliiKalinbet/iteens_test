@@ -31,12 +31,12 @@ const ResultDiagramm = ({
           data={[
             {
               title: 'Correct',
-              value: rightAnswered,
+              value: rightAnsweredInPercentage,
               color: '#ff6c00',
             },
             {
               title: 'Incorrect',
-              value: 100 - rightAnswered,
+              value: 100 - rightAnsweredInPercentage,
               color: '#8b92ab',
             },
           ]}
@@ -73,7 +73,6 @@ ResultDiagramm.defaultProps = {
   allQuestionsCount: 25,
   rightAnswered: 0,
   languageTitle: 'Java',
-  totalTime: 999,
   rightAnsweredInPercentage: 0,
 };
 
@@ -81,7 +80,7 @@ ResultDiagramm.propTypes = {
   allQuestionsCount: PropTypes.number,
   rightAnswered: PropTypes.number,
   languageTitle: PropTypes.string,
-  totalTime: PropTypes.number,
+  totalTime: PropTypes.string.isRequired,
   rightAnsweredInPercentage: PropTypes.number,
 };
 
