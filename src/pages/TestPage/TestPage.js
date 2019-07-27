@@ -1,6 +1,7 @@
 /* eslint no-shadow: 0 */
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
+import { withToastManager } from 'react-toast-notifications';
 import PropTypes from 'prop-types';
 import TestAnswer from '../../components/TestAnswer/TestAnswer';
 import TestExplanation from '../../components/TestExplanation/TestExplanation';
@@ -34,6 +35,15 @@ class TestPage extends Component {
     }
   }
 
+  addNotification = error => {
+    const { toastManager } = this.props;
+    toastManager.add(error, {
+      appearance: 'warning',
+      autoDismiss: true,
+      pauseOnHover: true,
+    });
+  };
+
   onChangeUserAnswer = e => {
     this.setState({ userAnswerNumber: Number(e.target.dataset.number) });
 
@@ -58,6 +68,8 @@ class TestPage extends Component {
       };
       this.props.fetchResultAnswer(userId, userAnswer);
       this.setState({ userAnswerNumber: null });
+    } else {
+      this.addNotification('Сперва выбери ответ, а потом жми на кнопку ;)');
     }
   };
 
@@ -73,7 +85,6 @@ class TestPage extends Component {
       history.push('/result');
       return;
     }
-
     rewriteCurrentQuestion();
     resetFields();
   };
@@ -183,10 +194,15 @@ TestPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
+  toastManager: PropTypes.shape({
+    add: PropTypes.func,
+    remove: PropTypes.func,
+    toasts: PropTypes.array,
+  }).isRequired,
 };
 
 TestPage.defaultProps = {
   currentQuestion: null,
 };
 
-export default TestPage;
+export default withToastManager(TestPage);

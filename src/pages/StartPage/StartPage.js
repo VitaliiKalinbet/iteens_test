@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Media from 'react-media';
 import Loader from 'react-loader-spinner';
+import { withToastManager } from 'react-toast-notifications';
 import Nav from '../../components/Header/Header';
 import style from './StartPage.module.css';
 import CardLanguage from './LanguageCard/LanguageCard';
@@ -14,11 +15,29 @@ import { getUserId } from '../../redux/testPage/testPageSelectors';
 class StartPage extends Component {
   componentDidMount = () => {
     if (this.props.userId) this.props.finishTest(this.props.userId);
-    this.props.fetchLanguages();
+    this.fetchLang();
+  };
+
+  fetchLang = async () => {
+    const lang = this.props.fetchLanguages();
+    lang.then(res => {
+      if (res) {
+        this.addNotification('Что-то пошло не так, перезагрузи страницу');
+      }
+    });
+  };
+
+  addNotification = error => {
+    const { toastManager } = this.props;
+    toastManager.add(error, {
+      appearance: 'error',
+      autoDismiss: true,
+      pauseOnHover: true,
+    });
   };
 
   render() {
-    const { loading, languages, error } = this.props;
+    const { loading, languages } = this.props;
     return (
       <Fragment>
         <Nav />
@@ -64,7 +83,6 @@ class StartPage extends Component {
               ))}
             </ul>
           )}
-          {error && <p className={style.error}>Что-то пошло не так(</p>}
         </section>
       </Fragment>
     );
@@ -84,6 +102,11 @@ StartPage.propTypes = {
   error: PropTypes.string,
   userId: PropTypes.string,
   finishTest: PropTypes.func.isRequired,
+  toastManager: PropTypes.shape({
+    add: PropTypes.func,
+    remove: PropTypes.func,
+    toasts: PropTypes.array,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -101,4 +124,4 @@ const mapDispatchToPropps = {
 export default connect(
   mapStateToProps,
   mapDispatchToPropps,
-)(StartPage);
+)(withToastManager(StartPage));
