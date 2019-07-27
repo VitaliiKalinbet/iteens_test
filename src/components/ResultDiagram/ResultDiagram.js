@@ -31,12 +31,12 @@ const ResultDiagramm = ({
           data={[
             {
               title: 'Correct',
-              value: rightAnswered,
+              value: rightAnsweredInPercentage,
               color: '#ff6c00',
             },
             {
               title: 'Incorrect',
-              value: 100 - rightAnswered,
+              value: 100 - rightAnsweredInPercentage,
               color: '#8b92ab',
             },
           ]}
