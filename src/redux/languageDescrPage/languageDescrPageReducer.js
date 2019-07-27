@@ -1,9 +1,12 @@
 import { ActionType } from './languageDescrPageActions';
+import { ActionType as TestType } from '../testPage/testPageActions';
 
 export const userIdReducer = (state = '', { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_TEST_SUCCESS:
       return payload.test.userId;
+    case TestType.FINISH_TEST_SUCCESS:
+      return '';
     default:
       return state;
   }
@@ -22,6 +25,12 @@ export const timeStartReducer = (
       };
     case ActionType.TIME_END:
       return { ...state, endTime: payload.time };
+
+    case TestType.FINISH_TEST_SUCCESS:
+      return {
+        startTime: null,
+        endTime: null,
+      };
     default:
       return state;
   }
