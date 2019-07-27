@@ -19,20 +19,22 @@ const LanguageCard = ({
       to="/language_descr"
     />
     <div className={style.shadow} />
-    {image.length ? (
-      <img
-        height="85"
-        width="auto"
-        className={style.logo}
-        src={image}
-        alt="logoLang"
-      />
-    ) : (
-      <div className={style.emptyImg} />
-    )}
+    <div className={style.wrapper}>
+      {image.length ? (
+        <img
+          height="85"
+          width="auto"
+          className={style.logo}
+          src={image}
+          alt="logoLang"
+        />
+      ) : (
+        <div className={style.emptyImg} />
+      )}
 
-    <p className={style.lang}>{title}</p>
-    <p className={style.questions}>{countQuestions} вопросов</p>
+      <p className={style.lang}>{title}</p>
+      <p className={style.questions}>{countQuestions} вопросов</p>
+    </div>
   </li>
 );
 

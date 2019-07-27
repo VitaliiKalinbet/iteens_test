@@ -28,7 +28,15 @@ class StartPage extends Component {
               </blockquote>
               <p className={style.autor}>Бенджамин Франклин</p>
               <p className={style.organization}>
-                [ Онлайн тесты для студентов <span>GoITeens</span> ]
+                [ Онлайн тесты для студентов{' '}
+                <a
+                  href="https://goiteens.ua/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  GoITeens
+                </a>{' '}
+                ]
               </p>
             </div>
           </div>
