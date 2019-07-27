@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+    user-select: none;
 }
 .languageDescrPageContainer{
     text-align: center;
     margin: 0 auto;
     width: 17.5rem;
-
     display: flex;
     flex-flow: column;
 }
@@ -33,5 +33,6 @@
         width: 68.125rem;
         flex-flow: row;
         justify-content: space-between;
+        margin-bottom: 2rem;
     }
 }

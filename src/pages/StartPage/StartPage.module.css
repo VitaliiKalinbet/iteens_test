@@ -38,6 +38,10 @@
 .organization span {
   color: #fc842c;
 }
+.organization a, .organization a:hover {
+  text-decoration: none;
+  color: #fc842c;
+}
 .langList {
   display: grid;
   list-style: none;
@@ -88,7 +92,20 @@
 }
 @media(min-width: 1280px) {
   .section{
-    padding: 0 80px 85px 80px;
+    padding: 0 80px 4vh 80px;
+  }
+  .sectionAbout {
+    padding: 4vh 25px;
+    margin-bottom: 4vh;
+  }
+  .lduo {
+    font-size: 50px;
+  }
+  .blockquote {
+    margin-bottom: 4vh;
+  }
+  .autor {
+    margin-bottom: 4vh;
   }
   .langList {
     grid-template-columns: 1fr 1fr 1fr;
