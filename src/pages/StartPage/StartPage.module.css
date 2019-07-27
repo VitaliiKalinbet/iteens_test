@@ -42,6 +42,9 @@
   text-decoration: none;
   color: #fc842c;
 }
+.organization a:hover, .organization a:active, .organization a:focus {
+  outline: none;
+}
 .langList {
   display: grid;
   list-style: none;
@@ -102,10 +105,10 @@
     font-size: 50px;
   }
   .blockquote {
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
   }
   .autor {
-    margin-bottom: 4vh;
+    margin-bottom: 3vh;
   }
   .langList {
     grid-template-columns: 1fr 1fr 1fr;
