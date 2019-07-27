@@ -7,13 +7,15 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
     <div className={styles.innerContainer}>
       <p className={styles.title}>Пояснения:</p>
       <p className={styles.text}>{description || 'Извини , без объяснения!'}</p>
-      <button
-        onClick={onClickNextQuestion}
-        className={styles.button}
-        type="submit"
-      >
-        Ок, дальше
-      </button>
+      {onClickNextQuestion && (
+        <button
+          onClick={onClickNextQuestion}
+          className={styles.button}
+          type="submit"
+        >
+          Ок, дальше
+        </button>
+      )}
     </div>
   </div>
 );

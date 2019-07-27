@@ -8,6 +8,7 @@ import * as selectors from '../../redux/languageDescrPage/languageDescrPageSelec
 import ResultDiagramm from '../../components/ResultDiagram/ResultDiagram';
 import css from './ResultPage.module.css';
 import AllTestContainer from '../../components/AllTestContainer/AllTestContainer';
+import * as selector from '../../redux/fakeReducer';
 
 class ResultPage extends Component {
   componentDidMount() {
@@ -23,16 +24,22 @@ class ResultPage extends Component {
   }
 
   render() {
-    const { endTime } = this.props;
+    const {
+      endTime,
+      allQuestionsCount,
+      languageTitle,
+      rightAnswered,
+      rightAnsweredInPercentage,
+    } = this.props;
     if (!endTime) return null;
     return (
       <div className={css.container}>
         <Header />
         <ResultDiagramm
-          allQuestionsCount={25}
-          languageTitle="C#"
-          rightAnswered={20}
-          rightAnsweredInPercentage={80}
+          allQuestionsCount={allQuestionsCount}
+          languageTitle={languageTitle}
+          rightAnswered={rightAnswered}
+          rightAnsweredInPercentage={rightAnsweredInPercentage}
           totalTime={this.getMinutes()}
         />
         <AllTestContainer />
@@ -45,6 +52,10 @@ ResultPage.propTypes = {
   startTime: PropTypes.number.isRequired,
   endTime: PropTypes.number.isRequired,
   setEndTime: PropTypes.func.isRequired,
+  allQuestionsCount: PropTypes.number.isRequired,
+  languageTitle: PropTypes.string.isRequired,
+  rightAnswered: PropTypes.number.isRequired,
+  rightAnsweredInPercentage: PropTypes.number.isRequired,
 };
 const mapDispatchToProps = {
   setEndTime: actions.endTime,
@@ -52,6 +63,10 @@ const mapDispatchToProps = {
 const mapStateToProps = state => ({
   startTime: selectors.startTime(state),
   endTime: selectors.endTime(state),
+  allQuestionsCount: selector.getAllQuestionsCount(state),
+  languageTitle: selector.getLanguageTitle(state),
+  rightAnswered: selector.getUserRightAnswered(state),
+  rightAnsweredInPercentage: selector.getUserRightAnsweredInPercentage(state),
 });
 export default connect(
   mapStateToProps,

@@ -12,7 +12,23 @@ export const ActionType = {
   FETCH_SKIP_QUESTION_START: 'FETCH_SKIP_QUESTION_START',
   FETCH_SKIP_QUESTION_SUCCESS: 'FETCH_SKIP_QUESTION_SUCCESS',
   FETCH_SKIP_QUESTION_ERROR: 'FETCH_SKIP_ERROR',
+  FINISH_TEST_START: 'FINISH_TEST_START',
+  FINISH_TEST_SUCCESS: 'FINISH_TEST_SUCCESS',
+  FINISH_TEST_ERROR: 'FINISH_TEST_ERROR',
 };
+
+/*
+ * finishTest
+ */
+export const finishTestStart = () => ({
+  type: ActionType.FINISH_TEST_START,
+});
+export const finishTestSuccess = () => ({
+  type: ActionType.FINISH_TEST_SUCCESS,
+});
+export const finishTestError = () => ({
+  type: ActionType.FINISH_TEST_ERROR,
+});
 
 /* rewriteCurrentQuestion */
 
