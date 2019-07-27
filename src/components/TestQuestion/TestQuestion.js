@@ -6,7 +6,7 @@ import css from './TestQuestion.module.css';
 const TestQuestion = ({ question }) => {
   return (
     <BoxShadow boxShadow={14} className={css.paper}>
-      <p className={css.text}>{question}</p>
+      <p className={css.text} dangerouslySetInnerHTML={{ __html: question }} />
     </BoxShadow>
   );
 };

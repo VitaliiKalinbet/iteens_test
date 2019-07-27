@@ -9,6 +9,8 @@
 }
 .label {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 .labelCorrect:before {
   position: absolute;
@@ -103,7 +105,13 @@
   border: 1px solid #8b92ab;
   background-color: transparent;
 }
-
+/* .answerBox{
+  display: flex;
+  justify-content: flex-start;
+}
+.answerBox:not(:last-child) {
+  margin-bottom: 20px;
+} */
 @media (min-width: 768px) {
   .container::after {
     content: '';

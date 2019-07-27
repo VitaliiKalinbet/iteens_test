@@ -9,10 +9,23 @@ import {
   fetchSkipTheQuestionStart,
   fetchSkipTheQuestionSuccess,
   fetchFinalResult,
+  finishTestError,
+  finishTestStart,
+  finishTestSuccess,
 } from './testPageActions';
 
 axios.defaults.baseURL = 'https://test.goit.co.ua/api';
-
+export const finishTest = userId => dispatch => {
+  dispatch(finishTestStart());
+  axios
+    .post(`/tests/cancel/${userId}`)
+    .then(() => {
+      dispatch(finishTestSuccess());
+    })
+    .catch(error => {
+      dispatch(finishTestError(error));
+    });
+};
 export const fetchResultAnswer = (userID, userAnswer) => dispatch => {
   dispatch(fetchResultAnswerStart());
 

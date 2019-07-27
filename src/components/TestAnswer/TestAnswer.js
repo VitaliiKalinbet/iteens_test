@@ -43,6 +43,7 @@ const TestAnswer = ({
                 key={question._id}
                 htmlFor={question._id}
                 className={labelClassNames}
+                y
               >
                 <input
                   id={question._id}
@@ -52,7 +53,10 @@ const TestAnswer = ({
                   data-number={question.answerNumber}
                   onChange={onChangeUserAnswer}
                 />
-                {question.answerText}
+                <span
+                  dangerouslySetInnerHTML={{ __html: question.answerText }}
+                  className={styles.questionText}
+                />
               </label>
             );
           })}

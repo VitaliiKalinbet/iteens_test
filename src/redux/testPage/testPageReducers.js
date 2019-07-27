@@ -46,6 +46,7 @@ export const resultAnsweredReducer = (state = false, { type, payload }) => {
       return payload.resultAnswer;
     case ActionType.RESET_RESULT_ANSWER:
       return payload.reset;
+
     default:
       return state;
   }
