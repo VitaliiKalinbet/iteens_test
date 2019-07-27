@@ -175,8 +175,8 @@ TestPage.propTypes = {
   userId: PropTypes.string.isRequired,
   finalResult: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
     .isRequired,
-  history: PropTypes.objectShape({
-    push: PropTypes.function.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
   }).isRequired,
 };
 
