@@ -26,11 +26,12 @@ const TestExplanation = ({ description, onClickNextQuestion }) => (
 
 TestExplanation.propTypes = {
   description: PropTypes.string,
-  onClickNextQuestion: PropTypes.func.isRequired,
+  onClickNextQuestion: PropTypes.func,
 };
 
 TestExplanation.defaultProps = {
   description: 'Извини , без объяснения!',
+  onClickNextQuestion: () => null,
 };
 
 export default TestExplanation;

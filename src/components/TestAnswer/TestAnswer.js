@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './TestAnswer.module.css';
-import happyCat from '../../assets/img/cat/happyCat.jpg';
-import pensiveСat from '../../assets/img/cat/pensiveСat.jpg';
+import happyCat1 from '../../assets/img/cat/happyCat1.jpg';
+import happyCat2 from '../../assets/img/cat/happyCat2.png';
+import pensiveСat1 from '../../assets/img/cat/pensiveСat1.jpg';
+import pensiveСat2 from '../../assets/img/cat/pensiveCat2.png';
+import pensiveСat3 from '../../assets/img/cat/pensiveCat3.png';
+
+const happyCatArray = [happyCat1, happyCat2];
+const pensiveCatArray = [pensiveСat1, pensiveСat2, pensiveСat3];
+
+const getRandomInt = max => Math.floor(Math.random() * max);
 
 const cx = classNames.bind(styles);
 let labelClassNames;
@@ -66,9 +74,17 @@ const TestAnswer = ({
         </div>
         {resultAnswer &&
           (resultAnswer.userAnswerCorrectly ? (
-            <img className={styles.img} alt="cat" src={happyCat} />
+            <img
+              className={styles.img}
+              alt="cat"
+              src={happyCatArray[getRandomInt(2)]}
+            />
           ) : (
-            <img className={styles.img} alt="cat" src={pensiveСat} />
+            <img
+              className={styles.img}
+              alt="cat"
+              src={pensiveCatArray[getRandomInt(3)]}
+            />
           ))}
       </div>
 
@@ -127,11 +143,15 @@ TestAnswer.propTypes = {
     }),
     PropTypes.bool,
   ]).isRequired,
-  onClickAnswer: PropTypes.func.isRequired,
-  onChangeUserAnswer: PropTypes.func.isRequired,
-  onClickSkipQuestion: PropTypes.func.isRequired,
+  onClickAnswer: PropTypes.func,
+  onChangeUserAnswer: PropTypes.func,
+  onClickSkipQuestion: PropTypes.func,
 };
 
-TestAnswer.defaultProps = {};
+TestAnswer.defaultProps = {
+  onClickAnswer: () => null,
+  onChangeUserAnswer: () => null,
+  onClickSkipQuestion: () => null,
+};
 
 export default TestAnswer;

@@ -2,13 +2,25 @@
   margin: 0 auto;
   width: 280px;
   z-index: 1;
-  position: relative;
+  /* position: relative; */
 }
 .loader {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.testPageContainer {
+  position: relative;
+}
+.background {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 30vh;
+  background: #f2f2f2;
+  z-index: -3;
 }
 
 @media (min-width: 768px) {
