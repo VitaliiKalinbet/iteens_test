@@ -68,7 +68,7 @@ export const nextQuestionAnswerReducer = (state = {}, { type, payload }) => {
   }
 };
 
-export const finalResultReducer = (state = null, { type, payload }) => {
+export const finalResultReducer = (state = false, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_FINAL_RESULT:
       return payload.finalResult;
