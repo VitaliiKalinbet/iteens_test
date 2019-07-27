@@ -52,12 +52,21 @@ export const resultAnsweredReducer = (state = false, { type, payload }) => {
   }
 };
 
-export const nextQuestionAnswer = (state = {}, { type, payload }) => {
+export const nextQuestionAnswerReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_NEXT_QUESTION_SUCCESS:
       return payload.nextQuestion;
     case ActionType.RESET_NEXT_QUESTION:
       return payload.reset;
+    default:
+      return state;
+  }
+};
+
+export const finalResultReducer = (state = null, { type, payload }) => {
+  switch (type) {
+    case ActionType.FETCH_FINAL_RESULT:
+      return payload.finalResult;
     default:
       return state;
   }

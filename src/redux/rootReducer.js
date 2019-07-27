@@ -9,7 +9,8 @@ import startPageSetLanguage from './startPageRedux/startPageSetLanguage';
 import {
   userAnswerReducer,
   resultAnsweredReducer,
-  nextQuestionAnswer,
+  nextQuestionAnswerReducer,
+  finalResultReducer,
 } from './testPage/testPageReducers';
 // тут импортируем редюсеры
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
   languagesInfoArr: startPageReducer,
   userAnswer: userAnswerReducer,
   resultAnswered: resultAnsweredReducer,
-  nextQuestion: nextQuestionAnswer,
+  nextQuestion: nextQuestionAnswerReducer,
+  finalResult: finalResultReducer,
 });
 
 export default rootReducer;
