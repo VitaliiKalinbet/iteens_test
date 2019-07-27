@@ -10,7 +10,7 @@ import * as startPageActions from '../../redux/startPageRedux/startPageActions';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
-import store from '../../redux/store';
+import { store } from '../../redux/store';
 import Header from '../../components/Header/Header';
 import '../../fonts.css';
 

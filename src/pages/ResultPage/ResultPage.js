@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import * as actions from '../../redux/languageDescrPage/languageDescrPageActionCreators';
 import * as selectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
@@ -30,7 +31,9 @@ class ResultPage extends Component {
       languageTitle,
       rightAnswered,
       rightAnsweredInPercentage,
+      finalResult,
     } = this.props;
+    if (!finalResult) return <Redirect to="/" />;
     if (!endTime) return null;
     return (
       <div className={css.container}>
@@ -56,9 +59,11 @@ ResultPage.propTypes = {
   languageTitle: PropTypes.string.isRequired,
   rightAnswered: PropTypes.number.isRequired,
   rightAnsweredInPercentage: PropTypes.number.isRequired,
+  finalResult: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
 };
 ResultPage.defaultProps = {
   endTime: null,
+  finalResult: false,
 };
 const mapDispatchToProps = {
   setEndTime: actions.endTime,
@@ -70,6 +75,7 @@ const mapStateToProps = state => ({
   languageTitle: selector.getLanguageTitle(state),
   rightAnswered: selector.getUserRightAnswered(state),
   rightAnsweredInPercentage: selector.getUserRightAnsweredInPercentage(state),
+  finalResult: selector.getFinalRsult(state),
 });
 export default connect(
   mapStateToProps,
