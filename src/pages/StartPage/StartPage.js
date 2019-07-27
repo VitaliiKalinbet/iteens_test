@@ -7,9 +7,12 @@ import style from './StartPage.module.css';
 import CardLanguage from './LanguageCard/LanguageCard';
 import * as startPageOperations from '../../redux/startPageRedux/startPageOperations';
 import * as languageSelectors from '../../redux/startPageRedux/startPageSelectors';
+import { finishTest } from '../../redux/testPage/testPageOperations';
+import { getUserId } from '../../redux/testPage/testPageSelectors';
 
 class StartPage extends Component {
   componentDidMount = () => {
+    if (this.props.userId) this.props.finishTest(this.props.userId);
     this.props.fetchLanguages();
   };
 
@@ -61,6 +64,7 @@ class StartPage extends Component {
 
 StartPage.defaultProps = {
   error: null,
+  userId: null,
 };
 
 StartPage.propTypes = {
@@ -69,16 +73,20 @@ StartPage.propTypes = {
   // eslint-disable-next-line
   languages: PropTypes.array.isRequired,
   error: PropTypes.string,
+  userId: PropTypes.string,
+  finishTest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   languages: languageSelectors.getPosts(state),
   loading: languageSelectors.loading(state),
   error: languageSelectors.error(state),
+  userId: getUserId(state),
 });
 
 const mapDispatchToPropps = {
   fetchLanguages: startPageOperations.fetchLanguages,
+  finishTest,
 };
 
 export default connect(

@@ -72,6 +72,8 @@ export const finalResultReducer = (state = null, { type, payload }) => {
   switch (type) {
     case ActionType.FETCH_FINAL_RESULT:
       return payload.finalResult;
+    case ActionType.FINISH_TEST_SUCCESS:
+      return null;
     default:
       return state;
   }
