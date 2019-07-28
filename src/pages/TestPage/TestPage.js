@@ -83,10 +83,12 @@ class TestPage extends Component {
 
     if (finalResult) {
       history.push('/result');
+      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
       return;
     }
     rewriteCurrentQuestion();
     resetFields();
+    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
   };
 
   onClickSkipQuestion = () => {
@@ -95,8 +97,8 @@ class TestPage extends Component {
     const { userId } = this.state;
     const questionSkip = { questionNumber, questionId };
     this.props.fetchSkipTheQuestion(userId, questionSkip);
-    document.documentElement.scrollTop(-3);
     this.props.resetUserAnswer();
+    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
   };
 
   render() {
