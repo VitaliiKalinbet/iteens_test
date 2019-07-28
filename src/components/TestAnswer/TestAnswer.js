@@ -16,6 +16,7 @@ const getRandomInt = max => Math.floor(Math.random() * max);
 const cx = classNames.bind(styles);
 let labelClassNames;
 let disabled;
+let checked;
 
 const TestAnswer = ({
   questions,
@@ -31,22 +32,24 @@ const TestAnswer = ({
           {questions.map((question, index) => {
             if (resultAnswer) {
               const currentIndex = index + 1;
-              labelClassNames = resultAnswer.userAnswerCorrectly
+              labelClassNames = resultAnswer.answerCorrectly
                 ? cx({
                     label: true,
                     labelCorrect: currentIndex === resultAnswer.rightAnswer,
                   })
                 : cx({
                     label: true,
-                    labelCorrect: currentIndex === resultAnswer.rightAnswer,
                     labelIncorrect: currentIndex === resultAnswer.userAnswer,
+                    labelCorrect: currentIndex === resultAnswer.rightAnswer,
                   });
+              checked = currentIndex === resultAnswer.userAnswer;
               disabled = true;
             } else {
               labelClassNames = cx({
                 label: true,
               });
               disabled = false;
+              checked = false;
             }
 
             return (
@@ -55,15 +58,29 @@ const TestAnswer = ({
                 htmlFor={question._id}
                 className={labelClassNames}
               >
-                <input
-                  disabled={disabled}
-                  id={question._id}
-                  className={styles.input}
-                  name="answer"
-                  type="radio"
-                  data-number={question.answerNumber}
-                  onChange={onChangeUserAnswer}
-                />
+                {resultAnswer ? (
+                  <input
+                    disabled={disabled}
+                    id={question._id}
+                    className={styles.input}
+                    name="answer"
+                    type="radio"
+                    data-number={question.answerNumber}
+                    onChange={onChangeUserAnswer}
+                    checked={checked}
+                  />
+                ) : (
+                  <input
+                    disabled={disabled}
+                    id={question._id}
+                    className={styles.input}
+                    name="answer"
+                    type="radio"
+                    data-number={question.answerNumber}
+                    onChange={onChangeUserAnswer}
+                  />
+                )}
+
                 <span
                   dangerouslySetInnerHTML={{ __html: question.answerText }}
                   className={styles.questionText}
@@ -73,7 +90,7 @@ const TestAnswer = ({
           })}
         </div>
         {resultAnswer &&
-          (resultAnswer.userAnswerCorrectly ? (
+          (resultAnswer.answerCorrectly ? (
             <img
               className={styles.img}
               alt="cat"

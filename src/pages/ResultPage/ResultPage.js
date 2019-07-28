@@ -36,17 +36,22 @@ class ResultPage extends Component {
     if (!finalResult) return <Redirect to="/" />;
     if (!endTime) return null;
     return (
-      <div className={css.container}>
-        <Header />
-        <ResultDiagramm
-          allQuestionsCount={allQuestionsCount}
-          languageTitle={languageTitle}
-          rightAnswered={rightAnswered}
-          rightAnsweredInPercentage={rightAnsweredInPercentage}
-          totalTime={this.getMinutes()}
-        />
-        <AllTestContainer />
-      </div>
+      <>
+        <div className={css.container}>
+          <Header />
+          <ResultDiagramm
+            allQuestionsCount={allQuestionsCount}
+            languageTitle={languageTitle}
+            rightAnswered={rightAnswered}
+            rightAnsweredInPercentage={rightAnsweredInPercentage}
+            totalTime={this.getMinutes()}
+          />
+          <AllTestContainer />
+        </div>
+        <div className={css.relative}>
+          <div className={css.background} />
+        </div>
+      </>
     );
   }
 }
