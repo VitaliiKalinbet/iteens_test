@@ -35,6 +35,8 @@ class TestPage extends Component {
     }
   }
 
+  scrollTop = () => window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+
   addNotification = error => {
     const { toastManager } = this.props;
     toastManager.add(error, {
@@ -83,12 +85,12 @@ class TestPage extends Component {
 
     if (finalResult) {
       history.push('/result');
-      window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+      this.scrollTop();
       return;
     }
     rewriteCurrentQuestion();
     resetFields();
-    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+    this.scrollTop();
   };
 
   onClickSkipQuestion = () => {
@@ -98,7 +100,7 @@ class TestPage extends Component {
     const questionSkip = { questionNumber, questionId };
     this.props.fetchSkipTheQuestion(userId, questionSkip);
     this.props.resetUserAnswer();
-    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+    this.scrollTop();
   };
 
   render() {
