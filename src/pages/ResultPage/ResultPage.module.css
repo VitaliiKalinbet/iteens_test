@@ -1,4 +1,15 @@
+.relative {
+  position: relative;
+}
 .container {
   max-width: 90%;
   margin: auto;
+}
+.background {
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
+  height: 65vh;
+  background: #f2f2f2;
+  z-index: -3;
 }

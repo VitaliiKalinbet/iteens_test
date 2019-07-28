@@ -151,11 +151,19 @@ class TestPage extends Component {
                 {resultAnswered && (
                   <TestExplanation
                     onClickNextQuestion={this.onClickNextQuestion}
-                    description={resultAnswered.explanation}
+                    description={resultAnswered.questionExplanation}
                   />
                 )}
               </div>
-              <div className={styles.background} />
+
+              {resultAnswered &&
+                (resultAnswered.explanation &&
+                resultAnswered.explanation.length > 100 ? (
+                  <div className={styles.bigBackground} />
+                ) : (
+                  <div className={styles.background} />
+                ))}
+              {!resultAnswered && <div className={styles.background} />}
             </div>
           </>
         )}

@@ -1,7 +1,6 @@
 .container {
   box-sizing: border-box;
   width: 280px;
-  margin: 0 auto;
   position: relative;
   background-color: transparent;
 }
