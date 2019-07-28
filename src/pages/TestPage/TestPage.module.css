@@ -2,7 +2,6 @@
   margin: 0 auto;
   width: 80%;
   z-index: 1;
-  /* position: relative; */
 }
 .loader {
   position: absolute;
@@ -13,12 +12,13 @@
 
 .testPageContainer {
   position: relative;
+  min-height: 100vh;
 }
 .background {
   width: 100%;
   position: absolute;
-  bottom: 0;
-  height: 30vh;
+  bottom: -30px;
+  height: 55vh;
   background: #f2f2f2;
   z-index: -3;
 }

@@ -32,7 +32,6 @@ export const fetchResultAnswer = (userID, userAnswer) => dispatch => {
   axios
     .post(`/answer/${userID}`, userAnswer)
     .then(response => {
-      console.log('response.data', response.data);
       if (!response.data.finalResult) {
         const {
           userId,
@@ -65,7 +64,6 @@ export const fetchSkipTheQuestion = (userID, question) => dispatch => {
   axios
     .post(`/answer/skip/${userID}`, question)
     .then(response => {
-      console.log('response.data', response.data);
       if (!response.data.finalResult) {
         const { questionNumber, allQuestionsCount } = response.data;
         const question = response.data.question || response.data.nextQuestion;

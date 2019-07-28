@@ -95,6 +95,7 @@ class TestPage extends Component {
     const { userId } = this.state;
     const questionSkip = { questionNumber, questionId };
     this.props.fetchSkipTheQuestion(userId, questionSkip);
+    document.documentElement.scrollTop(-3);
     this.props.resetUserAnswer();
   };
 
@@ -189,8 +190,7 @@ TestPage.propTypes = {
     userId: PropTypes.string,
   }),
   userId: PropTypes.string.isRequired,
-  finalResult: PropTypes.oneOfType([PropTypes.object, PropTypes.bool])
-    .isRequired,
+  finalResult: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -203,6 +203,7 @@ TestPage.propTypes = {
 
 TestPage.defaultProps = {
   currentQuestion: null,
+  finalResult: null,
 };
 
 export default withToastManager(TestPage);

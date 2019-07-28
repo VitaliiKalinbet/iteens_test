@@ -9,7 +9,7 @@ import styles from './AllTestContainer.module.css';
 import NewTestImage from '../NewTestImage/NewTestImage';
 
 const AllTestContainer = ({ questions }) =>
-  questions.map(item => (
+  questions.map((item, i) => (
     <div className={styles.item} key={item.questionId}>
       <TestQuestion question={item.questionText} />
       {item.image && (
@@ -26,14 +26,22 @@ const AllTestContainer = ({ questions }) =>
           userAnswer: item.userAnswer,
         }}
       />
-      <TestExplanation description={item.explanation || ''} />
+      <TestExplanation
+        description={item.explanation || ''}
+        onClickNextQuestion={null}
+      />
+      {!(questions.length - 1 === i) && <span className={styles.span} />}
     </div>
   ));
 AllTestContainer.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
   languageTitle: PropTypes.string.isRequired,
-  code: PropTypes.string.isRequired,
-  explanation: PropTypes.string.isRequired,
+  code: PropTypes.string,
+  explanation: PropTypes.string,
+};
+AllTestContainer.defaultProps = {
+  code: '',
+  explanation: '',
 };
 const mapStateToProps = state => ({
   questions: allTestContainerSelectors.getQuestions(state),
