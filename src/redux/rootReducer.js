@@ -12,6 +12,7 @@ import {
   nextQuestionAnswerReducer,
   finalResultReducer,
 } from './testPage/testPageReducers';
+
 // тут импортируем редюсеры
 
 const rootReducer = combineReducers({

@@ -3,7 +3,7 @@ import TestPage from './TestPage';
 import * as TestPageActions from '../../redux/testPage/testPageActions';
 import * as TestPageOperations from '../../redux/testPage/testPageOperations';
 import * as TestPageSelectors from '../../redux/testPage/testPageSelectors';
-import store from '../../redux/store';
+import { store } from '../../redux/store';
 
 const { dispatch, getState } = store;
 
