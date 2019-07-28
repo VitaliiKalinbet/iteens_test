@@ -5,3 +5,4 @@ export const getUserRightAnswered = state =>
   state.finalResult.userRightAnswered;
 export const getUserRightAnsweredInPercentage = state =>
   state.finalResult.userRightAnsweredInPercentage;
+export const getFinalRsult = state => state.finalResult;
