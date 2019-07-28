@@ -67,7 +67,7 @@ const TestAnswer = ({
                     type="radio"
                     data-number={question.answerNumber}
                     onChange={onChangeUserAnswer}
-                    checked={checked}
+                    defaultChecked={checked}
                   />
                 ) : (
                   <input
