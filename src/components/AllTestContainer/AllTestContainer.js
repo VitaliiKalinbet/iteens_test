@@ -21,7 +21,7 @@ const AllTestContainer = ({ questions }) =>
       <TestAnswer
         questions={item.answers}
         resultAnswer={{
-          userAnswerCorrectly: item.userAnswerCorrectly,
+          answerCorrectly: item.userAnswerCorrectly,
           rightAnswer: item.rightAnswer,
           userAnswer: item.userAnswer,
         }}

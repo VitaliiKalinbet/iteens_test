@@ -3,49 +3,50 @@
     "name": "Виталий Диваков",
     "position": "Product owner",
     "email": "divakovvo@gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoDivakov",
+    "description": "Создание прототипов (в Moqups), формирование и управление Product Backlog (User Stories), наполнение базы тестов через API, взаимодействие с командой разработки."
   },
   {
-    "name": "Наталья",
+    "name": "Наталья Кобец",
     "position": "Project manager",
     "email": "natali.rizado@.gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoKobec",
+    "description": "Была ответственная за управление проектом согласно Scrum: проводила Sprint Planning Meeting,Daily Scrum Meeting, Sprint Review, Demo, Retrocpective, постороение Burndown Chat. Создание и управление задачами в Trello, загрузкой команды, налаживание командной комуникации. Проводила functional and GUI testing."
   },
   {
     "name": "Алексей Потапов",
     "position": "frondend - разработчик",
     "email": "aleksey.potapov1811@gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoPotapov",
+    "description": "Сделал страницу тестов. Вёрстка, стилизация и адаптация, возможность отправить ответ , пропустить вопрос. Визуализация правильных и не правильных ответов. Использовал стек технологий: React, Redux."
   },
   {
     "name": "Максим Марюхин",
     "position": "frondend - разработчик",
     "email": "maryuhin.z@gmail.com ",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoMarukhin",
+    "description": "В проекте занимался разработкой LanguageDescrPage, компонентом AllTestContainer на странице результатов, который демонстрирует ответы пользователся. Интегрировал пакет react-toast-notifications, добавляет уведомления на всех страницах в случае ошибок или некорректных действий пользователя. В Redux делал запросы на backend."
   },
   {
     "name": "Дмитрий Лапеев",
     "position": "frondend - разработчик",
     "email": "lapeev16@gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoLapeev",
+    "description": "Был ответственный за стартовую страницу, за хедер и ResultDiagram. Использовал стек технологий: React, Redux."
   },
   {
     "name": "Вадим Верекета",
     "position": "frondend - разработчик",
     "email": "Kam1Cadzee@gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoVereketa",
+    "description": "Был ответственный за страницу результатов. Используемый стек технологий: React, Redux. Реализована фича, сохранение состояние при перезагрузке страниц."
   },
 
   {
     "name": "Виталий Калинбет",
     "position": "team lead",
     "email": "bosssvit@gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
-  },
-  {
-    "name": "Виктор",
-    "position": "backend - разработчик",
-    "email": "test.email@.gmail.com",
-    "description": "It is a long established fact that a reader will be distracted by the readable content of a page."
+    "photo" : "photoKalinbet",
+    "description": "В проекте продумал структуру фронтенда, сделал initial build, организовал работу команды, принимал pull request от разработчиков."
   }
 ]
