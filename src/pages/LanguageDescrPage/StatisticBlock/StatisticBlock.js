@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import styles from './StatisticBlock.module.css';
 import TextBlockItem from './TextBlockItem/TextBlockItem';
 
@@ -24,9 +23,7 @@ const StatisticBlock = ({
       <TextBlockItem itemName="Создан" info={changeDate(createdAt)} />
       <TextBlockItem itemName="Обновлен" info={changeDate(updatedAt)} />
       <button className={styles.btnGoBack} type="button" onClick={onClick}>
-        <NavLink to="/" className={styles.btnGoBack_link}>
-          Вернуться к списку тестов
-        </NavLink>
+        Вернуться к списку тестов
       </button>
     </div>
   </div>

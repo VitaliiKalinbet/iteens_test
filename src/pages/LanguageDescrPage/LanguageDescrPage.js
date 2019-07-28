@@ -6,11 +6,9 @@ import Loader from 'react-loader-spinner';
 import * as languageDescrPageSelectors from '../../redux/languageDescrPage/languageDescrPageSelectors';
 import * as languageDescrPageActionCreators from '../../redux/languageDescrPage/languageDescrPageActionCreators';
 import * as languageDescrPageOperations from '../../redux/languageDescrPage/languageDescrPageOperations';
-import * as startPageActions from '../../redux/startPageRedux/startPageActions';
 import styles from './LanguageDescrPage.module.css';
 import StatisticBlock from './StatisticBlock/StatisticBlock';
 import InformationBlock from './InformationBlock/InformationBlock';
-import { store } from '../../redux/store';
 import Header from '../../components/Header/Header';
 import '../../fonts.css';
 
@@ -18,9 +16,9 @@ class LanguageDescrPage extends Component {
   state = {};
 
   handleBtnBack = e => {
-    const { onComeBack } = this.props;
+    const { history } = this.props;
     e.preventDefault();
-    onComeBack(store.getState());
+    history.push('/');
   };
 
   addNotification = error => {
@@ -100,7 +98,6 @@ LanguageDescrPage.propTypes = {
     createdAt: PropTypes.string.isRequired,
     updatedAt: PropTypes.string,
   }).isRequired,
-  onComeBack: PropTypes.func.isRequired,
   fetchTest: PropTypes.func.isRequired,
   setStartTime: PropTypes.func.isRequired,
   currentLanguageId: PropTypes.string.isRequired,
@@ -120,8 +117,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onComeBack: currentLanguage =>
-    dispatch(startPageActions.onComeBack(currentLanguage)),
   fetchTest: id => dispatch(languageDescrPageOperations.fetchTest(id)),
   setStartTime: startTime =>
     dispatch(languageDescrPageActionCreators.startTime(startTime)),
