@@ -20,7 +20,7 @@
   background-image: url('../../assets/icons/checked.svg');
   background-repeat: no-repeat;
   background-size: 13px 13px;
-  width: 280px;
+  width: 300px;
   left: -45px;
   height: 100%;
   background-position: 15px center;
@@ -124,6 +124,7 @@
     margin-top: 0px;
     width: 180px;
     height: 180px;
+    margin-right: 30px;
   }
   .wrapperImgInput {
     display: flex;
@@ -145,15 +146,16 @@
   }
   .inputWrapper {
     margin-bottom: 30px;
+    width: 290px;
   }
   .buttonConfirm {
     margin-right: 20px;
   }
 
   .labelCorrect:before {
-    width: 420px;
+    width: 335px;
   }
   .labelIncorrect:before {
-    width: 420px;
+    width: 335px;
   }
 }

@@ -35,7 +35,7 @@ class LanguageDescrPage extends Component {
     e.preventDefault();
     const tests = await fetchTest(currentLanguageId);
     if (tests) {
-      this.addNotification(tests.message);
+      this.addNotification('Что-то пошло не так, перезагрузи страницу');
     } else {
       setStartTime(Date.now());
       history.push('/test');
